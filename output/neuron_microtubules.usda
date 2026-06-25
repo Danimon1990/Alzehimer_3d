@@ -1,0 +1,220 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.000001
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Materials"
+    {
+        def Material "NeuronMembrane"
+        {
+            token outputs:surface.connect = </World/Materials/NeuronMembrane/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.55, 0.88)
+                float inputs:metallic = 0
+                float inputs:opacity = 0.15
+                float inputs:roughness = 0.25
+                token outputs:surface
+            }
+        }
+
+        def Material "Microtubule"
+        {
+            token outputs:surface.connect = </World/Materials/Microtubule/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.1, 0.9, 0.45)
+                color3f inputs:emissiveColor = (0.02, 0.2, 0.1)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+    }
+
+    def Xform "NeuronShell" (
+        prepend references = @../assets/neuron_model.usda@
+    )
+    {
+        rel material:binding = </World/Materials/NeuronMembrane>
+        float xformOp:rotateX = -90
+        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+
+        over "env_light" (
+            active = false
+        )
+        {
+        }
+    }
+
+    def Xform "Microtubules"
+    {
+        def Xform "Axon"
+        {
+            double3 xformOp:translate = (-0.4, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def PointInstancer "Bundle"
+            {
+                point3f[] positions = [(0, -23.664, 0), (0, -17.748, 0), (0, -11.832, 0), (0, -5.916, 0), (1.1, -23.664, 0), (1.1, -17.748, 0), (1.1, -11.832, 0), (1.1, -5.916, 0), (0.55, -23.664, 0.95262796), (0.55, -17.748, 0.95262796), (0.55, -11.832, 0.95262796), (0.55, -5.916, 0.95262796), (-0.55, -23.664, 0.95262796), (-0.55, -17.748, 0.95262796), (-0.55, -11.832, 0.95262796), (-0.55, -5.916, 0.95262796), (-1.1, -23.664, 1.3471115e-16), (-1.1, -17.748, 1.3471115e-16), (-1.1, -11.832, 1.3471115e-16), (-1.1, -5.916, 1.3471115e-16), (-0.55, -23.664, -0.95262796), (-0.55, -17.748, -0.95262796), (-0.55, -11.832, -0.95262796), (-0.55, -5.916, -0.95262796), (0.55, -23.664, -0.95262796), (0.55, -17.748, -0.95262796), (0.55, -11.832, -0.95262796), (0.55, -5.916, -0.95262796)]
+                int[] protoIndices = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                rel prototypes = </World/Microtubules/Axon/Bundle/Prototypes/Segment>
+
+                def Scope "Prototypes"
+                {
+                    def Xform "Segment" (
+                        prepend references = @../assets/microtubules.usdc@
+                    )
+                    {
+                        rel material:binding = </World/Materials/Microtubule>
+                        float xformOp:rotateX = -90
+                        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+
+                        over "env_light" (
+                            active = false
+                        )
+                        {
+                        }
+                    }
+                }
+            }
+        }
+
+        def Xform "ApicalDendrite"
+        {
+            double3 xformOp:translate = (-0.4, 1.8, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def PointInstancer "Bundle"
+            {
+                point3f[] positions = [(0, 0, 0), (0, 5.916, 0), (0.7, 0, 0), (0.7, 5.916, 0), (0.35, 0, 0.6062178), (0.35, 5.916, 0.6062178)]
+                int[] protoIndices = [0, 0, 0, 0, 0, 0]
+                rel prototypes = </World/Microtubules/ApicalDendrite/Bundle/Prototypes/Segment>
+
+                def Scope "Prototypes"
+                {
+                    def Xform "Segment" (
+                        prepend references = @../assets/microtubules.usdc@
+                    )
+                    {
+                        rel material:binding = </World/Materials/Microtubule>
+                        float xformOp:rotateX = -90
+                        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+
+                        over "env_light" (
+                            active = false
+                        )
+                        {
+                        }
+                    }
+                }
+            }
+        }
+
+        def Xform "BasalDendrite1"
+        {
+            float xformOp:rotateZ = -55
+            double3 xformOp:translate = (-0.4, 1.8, 0)
+            uniform token[] xformOpOrder = ["xformOp:rotateZ", "xformOp:translate"]
+
+            def PointInstancer "Bundle"
+            {
+                point3f[] positions = [(0, 0, 0), (0, 5.916, 0), (0.7, 0, 0), (0.7, 5.916, 0), (0.35, 0, 0.6062178), (0.35, 5.916, 0.6062178)]
+                int[] protoIndices = [0, 0, 0, 0, 0, 0]
+                rel prototypes = </World/Microtubules/BasalDendrite1/Bundle/Prototypes/Segment>
+
+                def Scope "Prototypes"
+                {
+                    def Xform "Segment" (
+                        prepend references = @../assets/microtubules.usdc@
+                    )
+                    {
+                        rel material:binding = </World/Materials/Microtubule>
+                        float xformOp:rotateX = -90
+                        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+
+                        over "env_light" (
+                            active = false
+                        )
+                        {
+                        }
+                    }
+                }
+            }
+        }
+
+        def Xform "BasalDendrite2"
+        {
+            float xformOp:rotateZ = 55
+            double3 xformOp:translate = (-0.4, 1.8, 0)
+            uniform token[] xformOpOrder = ["xformOp:rotateZ", "xformOp:translate"]
+
+            def PointInstancer "Bundle"
+            {
+                point3f[] positions = [(0, 0, 0), (0, 5.916, 0), (0.7, 0, 0), (0.7, 5.916, 0), (0.35, 0, 0.6062178), (0.35, 5.916, 0.6062178)]
+                int[] protoIndices = [0, 0, 0, 0, 0, 0]
+                rel prototypes = </World/Microtubules/BasalDendrite2/Bundle/Prototypes/Segment>
+
+                def Scope "Prototypes"
+                {
+                    def Xform "Segment" (
+                        prepend references = @../assets/microtubules.usdc@
+                    )
+                    {
+                        rel material:binding = </World/Materials/Microtubule>
+                        float xformOp:rotateX = -90
+                        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+
+                        over "env_light" (
+                            active = false
+                        )
+                        {
+                        }
+                    }
+                }
+            }
+        }
+
+        def Xform "BasalDendrite3"
+        {
+            float xformOp:rotateX = -55
+            double3 xformOp:translate = (-0.4, 1.8, 0)
+            uniform token[] xformOpOrder = ["xformOp:rotateX", "xformOp:translate"]
+
+            def PointInstancer "Bundle"
+            {
+                point3f[] positions = [(0, 0, 0), (0, 5.916, 0), (0.7, 0, 0), (0.7, 5.916, 0), (0.35, 0, 0.6062178), (0.35, 5.916, 0.6062178)]
+                int[] protoIndices = [0, 0, 0, 0, 0, 0]
+                rel prototypes = </World/Microtubules/BasalDendrite3/Bundle/Prototypes/Segment>
+
+                def Scope "Prototypes"
+                {
+                    def Xform "Segment" (
+                        prepend references = @../assets/microtubules.usdc@
+                    )
+                    {
+                        rel material:binding = </World/Materials/Microtubule>
+                        float xformOp:rotateX = -90
+                        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+
+                        over "env_light" (
+                            active = false
+                        )
+                        {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

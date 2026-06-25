@@ -1,0 +1,19 @@
+#usda 1.0
+(
+    doc = """Healthy control — metadata overlay for comparative rendering."""
+    defaultPrim = "NeuralNetwork"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+    subLayers = [
+        @./Network.usda@
+    ]
+)
+
+over "NeuralNetwork" (
+    customData = {
+        string disease_state = "healthy"
+        string study = "healthy_vs_alz"
+    }
+)
+{
+}

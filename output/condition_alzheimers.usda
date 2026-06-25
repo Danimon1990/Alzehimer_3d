@@ -1,0 +1,19 @@
+#usda 1.0
+(
+    doc = """Alzheimer's model context — metadata overlay (visual overrides use separate layers)."""
+    defaultPrim = "NeuralNetwork"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+    subLayers = [
+        @./Network.usda@
+    ]
+)
+
+over "NeuralNetwork" (
+    customData = {
+        string disease_state = "alzheimers"
+        string study = "healthy_vs_alz"
+    }
+)
+{
+}

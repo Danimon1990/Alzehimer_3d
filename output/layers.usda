@@ -1,0 +1,59 @@
+#usda 1.0
+(
+    doc = """4×4 grid of the neural network scene, instanced via PointInstancer so all
+    copies share the same time-sampled animation (pulse routing, synapse glow, etc.).
+
+    Prototype references the flattened Network.usda (full dendrite geometry + animation).
+    instanceable is off so Isaac Sim / RTX evaluate time samples and meshes correctly
+    inside PointInstancer prototypes."""
+    defaultPrim = "LayeredNetworks"
+    endTimeCode = 119
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    subLayers = [
+        @./lighting.usda@
+    ]
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "LayeredNetworks"
+{
+    # Full /NeuralNetwork from Network.usda (flattened: dendrites, curves, materials).
+    # instanceable=false: required for correct animation + full geometry under many
+    # Hydra/RTX PointInstancer paths (instanceable=true often drops varying attrs / meshes).
+    def Xform "NetworkProto" (
+        instanceable = false
+        prepend references = @./Network.usda@</NeuralNetwork>
+    )
+    {
+    }
+
+    # 4×4 layout in the X/Y plane: higher Y reads as the “input” row (toward +Y), lower
+    # rows as successive layers along -Y.  Spacing matches the ~210×190 extent of each
+    # network so instances do not overlap.
+    def PointInstancer "NetworkLayers"
+    {
+        rel prototypes = </LayeredNetworks/NetworkProto>
+        int[] protoIndices = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        point3f[] positions = [
+            (-420, 420, 0), (-140, 420, 0), (140, 420, 0), (420, 420, 0),
+            (-420, 140, 0), (-140, 140, 0), (140, 140, 0), (420, 140, 0),
+            (-420, -140, 0), (-140, -140, 0), (140, -140, 0), (420, -140, 0),
+            (-420, -420, 0), (-140, -420, 0), (140, -420, 0), (420, -420, 0),
+        ]
+    }
+
+    # Pulled-back view of the full grid (per-network cameras inside each instance are
+    # still present on the stage if your renderer enumerates them).
+    def Camera "Overview"
+    {
+        float2 clippingRange = (0.01, 10000000)
+        float focalLength = 24
+        float focusDistance = 2000
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 2200)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}

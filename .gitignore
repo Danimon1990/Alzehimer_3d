@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Blender
+*.blend1
+
+# Binary assets (large files — track source .usda instead)
+assets/*.blend
+assets/*.usdc
+assets/textures/
+
+# Screenshots / renders
+output/*.png
+output/*.jpg
+output/*.exr

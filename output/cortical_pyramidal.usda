@@ -1,0 +1,2046 @@
+#usda 1.0
+# Live-updated by neuron_usd/cortical_pyramidal_builder.py
+(
+    defaultPrim = "CorticalPyramidal"
+    endTimeCode = 120
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "CorticalPyramidal" (
+    customData = {
+        string circuit_role = "cortical_input"
+        string neuron_type = "cortical_pyramidal"
+        string projection_type = "corticostriatal"
+        double propagation_speed_ms = 70
+        double refractory_period_ms = 1.8
+        double signal_threshold = 0.55
+        string species = "human"
+        string target_structure = "striatum"
+    }
+)
+{
+    def Sphere "Soma" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        double radius = 15
+        float3 xformOp:scale = (1, 1.18, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Scope "ApicalDendrite" (
+        customData = {
+            string receptor_type = "AMPA_NMDA"
+            string role = "apical_dendrite"
+            int synapse_count = 18
+        }
+    )
+    {
+        def BasisCurves "Trunk" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [10]
+            rel material:binding = </CorticalPyramidal/Materials/ApicalMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, 16.815, 0), (0.1417858, 26.815, 0.022536634), (0.2737161, 36.815, 0.710165), (-0.9327906, 46.815, 0.6723195), (1.1313542, 56.815, 0.4676062), (0.21337558, 66.815, -1.1435521), (0.42626292, 76.815, 0.6026835), (-0.11664072, 86.815, 0.611302), (-0.1765997, 96.815, 0.16234168), (-1.4127943e-16, 106.815, -1.0065692e-16)]
+            uniform token type = "linear"
+            float[] widths = [2.4, 2.2222223, 2.0444446, 1.8666667, 1.6888889, 1.5111111, 1.3333334, 1.1555556, 0.9777778, 0.8] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Oblique_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [7]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0.1417858, 26.815, 0.022536634), (4.377082, 27.295958, 0.8663458), (7.9138656, 30.255741, 1.4317821), (12.491082, 29.993574, 1.8131548), (16.082935, 31.219841, 4.3587236), (19.78131, 33.65368, 4.9281), (23.991104, 34.185688, 5.81196)]
+            uniform token type = "linear"
+            float[] widths = [1.44, 1.3333334, 1.2266667, 1.12, 1.0133333, 0.9066667, 0.8] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (24.048449797708827, 34.0600946692946, 5.735625399064406)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (23.969785319617138, 34.09142857217788, 6.019788716781202)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (23.951533284877357, 34.263370346869614, 5.876073132685077)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Oblique_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [7]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0.9327906, 46.815, 0.6723195), (-0.6296653, 48.186897, 3.553856), (0.1824734, 50.039227, 6.065247), (0.021347355, 51.330814, 9.115641), (2.7473485, 51.596554, 11.835101), (3.1068275, 53.167595, 14.606839), (3.7665057, 54.667812, 17.32727)]
+            uniform token type = "linear"
+            float[] widths = [1.44, 1.3333334, 1.2266667, 1.12, 1.0133333, 0.9066667, 0.8] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (4.030050317667093, 54.834835110988635, 17.174157586748223)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (4.0013846480810225, 54.528939944620106, 17.32647540908139)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (3.780630938159705, 54.822056654676274, 17.250557836630502)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Oblique_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [7]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(1.1313542, 56.815, 0.4676062), (-3.094033, 57.352463, 0.14372282), (-6.8890142, 59.666004, -0.3634005), (-11.478637, 58.94527, -0.016772363), (-15.143653, 61.216698, -1.7969882), (-19.545095, 61.2921, -1.4891872), (-23.563911, 62.519947, -2.2421625)]
+            uniform token type = "linear"
+            float[] widths = [1.44, 1.3333334, 1.2266667, 1.12, 1.0133333, 0.9066667, 0.8] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-23.57185239252706, 62.65275765274224, -1.8901791704305702)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-23.504417265572897, 62.610479282572314, -2.593753733914146)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-23.548210522156566, 62.44765505496398, -2.537445506940464)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Oblique_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [7]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0.42626292, 76.815, 0.6026835), (1.5947448, 77.10312, -2.9421117), (1.0392437, 77.07717, -6.9727073), (1.7443814, 77.63666, -10.5762005), (3.7687933, 80.84319, -13.321782), (3.9695835, 80.959366, -17.138386), (5.619621, 81.09705, -20.595592)]
+            uniform token type = "linear"
+            float[] widths = [1.44, 1.3333334, 1.2266667, 1.12, 1.0133333, 0.9066667, 0.8] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (5.677458055675869, 81.30137395156565, -20.540150750333176)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (5.29934764411107, 81.05340073361774, -20.6828744919646)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (5.521786528400681, 81.36023736021258, -20.566398248263557)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Tuft_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [6]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.4127943e-16, 106.815, -1.0065692e-16), (3.8391902, 108.280106, -0.4065324), (6.338467, 111.90751, -0.35444865), (10.499604, 112.503525, 2.0111907), (13.368873, 115.623024, 1.2012988), (17.128992, 117.16321, 1.254939)]
+            uniform token type = "linear"
+            float[] widths = [0.96, 0.816, 0.672, 0.528, 0.384, 0.24] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (17.17699829711289, 117.09246414628024, 1.183039737192378)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (17.05224250448138, 117.33084879691101, 0.9201485301753288)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (17.263257038635523, 116.92114389900894, 1.4183753770507352)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Tuft_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [6]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.4127943e-16, 106.815, -1.0065692e-16), (0.7860409, 108.7101, -3.5415587), (1.0062708, 112.23207, -6.1879497), (2.578813, 111.86175, -10.97626), (2.2916825, 114.98961, -13.944896), (2.8249307, 117.30242, -17.274197)]
+            uniform token type = "linear"
+            float[] widths = [0.96, 0.816, 0.672, 0.528, 0.384, 0.24] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (2.7016609429840956, 117.59686990762783, -17.11558925695058)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (3.148900585408594, 117.23425505188821, -17.262598880400137)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (2.7019080510175746, 117.1590853246554, -17.381334325257804)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Tuft_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [6]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.4127943e-16, 106.815, -1.0065692e-16), (-2.6519337, 108.67397, -1.7297308), (-4.8171263, 111.09182, -3.5182881), (-7.2028923, 112.57589, -5.9924593), (-9.82725, 114.38698, -7.8087797), (-12.354711, 116.59188, -9.341074)]
+            uniform token type = "linear"
+            float[] widths = [0.96, 0.816, 0.672, 0.528, 0.384, 0.24] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-12.463237617043944, 116.31190553560235, -9.490569472788858)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-12.388187387369491, 116.5252103449208, -9.366576055267961)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-12.414644640394679, 116.24792603226943, -9.621804070573793)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Tuft_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [6]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.4127943e-16, 106.815, -1.0065692e-16), (-2.5795274, 109.117836, 2.527865), (-4.64364, 112.3761, 4.6834083), (-6.4238462, 114.148476, 8.544375), (-10.339564, 115.66641, 10.430957), (-12.875771, 118.596405, 12.408301)]
+            uniform token type = "linear"
+            float[] widths = [0.96, 0.816, 0.672, 0.528, 0.384, 0.24] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-12.704115601723473, 118.5998348128804, 12.583168446912987)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-12.79961529933424, 118.7508903041141, 12.34064707002764)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (-12.746269226665039, 118.70117370723969, 12.443207701508035)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+
+        def BasisCurves "Tuft_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [6]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.4127943e-16, 106.815, -1.0065692e-16), (0.9055199, 109.828026, 3.130016), (1.775996, 111.547356, 7.1687374), (4.758919, 114.41622, 9.520911), (6.201639, 115.65927, 13.647027), (7.135208, 118.48751, 16.892876)]
+            uniform token type = "linear"
+            float[] widths = [0.96, 0.816, 0.672, 0.528, 0.384, 0.24] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def Sphere "Spine_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (6.924793688527949, 118.81370074067738, 16.756362489509446)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (7.053457261577483, 118.3873975061785, 16.996581370591624)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+
+            def Sphere "Spine_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                double radius = 0.45
+                double3 xformOp:translate = (6.93166502803179, 118.63741130916345, 16.8752713042774)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+            }
+        }
+    }
+
+    def Scope "BasalDendrites" (
+        customData = {
+            string role = "basal_dendrites"
+        }
+    )
+    {
+        def BasisCurves "Primary_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(13.505228, -8.348002, -1.2979108), (18.13888, -11.240467, -1.8215508), (22.10576, -15.389271, -1.2025694), (28.43517, -15.525906, -1.8063986), (32.293106, -19.436981, -3.8500662), (35.94713, -24.216494, -2.4298248), (41.71164, -25.221264, -3.3279073), (46.06655, -28.475168, -4.4271946)]
+            uniform token type = "linear"
+            float[] widths = [1.6, 1.4142857, 1.2285714, 1.0428572, 0.85714287, 0.67142856, 0.4857143, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(46.06655, -28.475168, -4.4271946), (45.885662, -31.862722, -5.0470786), (46.309345, -35.039925, -6.3304744), (47.052467, -38.657665, -6.299557), (45.9176, -41.23788, -9.310584), (45.811737, -44.6718, -9.7941065)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (46.183042984013646, -44.58177843273829, -10.083403397492974)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (45.49474064405481, -44.559115681369335, -10.119116867222505)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (45.939971312571565, -44.698202856201725, -9.720509163500903)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(46.06655, -28.475168, -4.4271946), (48.763447, -28.587463, -5.2092323), (50.69194, -25.891294, -5.6218476), (53.79545, -26.869001, -5.9171867), (55.805885, -25.217169, -7.1877685), (58.31885, -24.667126, -7.892271)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (58.44434581434918, -24.940465757929754, -7.748925467695662)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (58.306048661794655, -24.367837048064715, -7.608629583636153)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (58.25132912151432, -24.31339748059375, -7.742286687703306)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(5.909421, -4.0152755, 14.23802), (7.3504286, -6.042131, 18.775743), (10.171874, -5.404481, 23.491941), (10.98841, -5.298611, 28.8903), (13.321429, -10.271111, 32.227097), (15.733187, -9.687502, 37.09809), (17.670652, -12.391282, 41.23886), (19.155869, -13.0158415, 46.153698)]
+            uniform token type = "linear"
+            float[] widths = [1.6, 1.4142857, 1.2285714, 1.0428572, 0.85714287, 0.67142856, 0.4857143, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(19.155869, -13.0158415, 46.153698), (16.48571, -14.265817, 48.572853), (15.380829, -15.366507, 52.179035), (12.892336, -13.397573, 55.503178), (10.751294, -16.45682, 57.877922), (8.382431, -16.526049, 60.801632)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (8.179778315772058, -16.384103365241145, 60.68659731161264)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (8.648297151133201, -16.650958406569796, 60.96724052820567)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (8.30718986895551, -16.788063576853418, 60.68350314150505)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(19.155869, -13.0158415, 46.153698), (20.921482, -15.035578, 47.379505), (22.806826, -17.829266, 46.92602), (24.488358, -18.576014, 50.779465), (25.479658, -21.661638, 50.811466), (26.028393, -24.469389, 51.922417)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (25.773450432065943, -24.679776803465266, 51.80842737111323)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (26.049646701381537, -24.441074273331783, 51.95331662910092)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (26.324457713741264, -24.428423461646386, 51.65104001146835)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(19.155869, -13.0158415, 46.153698), (21.672052, -10.983776, 47.26452), (23.902838, -10.671789, 50.611332), (25.99597, -8.526599, 52.126972), (27.936066, -4.8780327, 52.191044), (29.926235, -3.5940354, 54.776306)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (29.911244737409643, -3.6845518326396602, 54.89393711651919)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (29.825834574972262, -3.7344118401554036, 55.05510302674612)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (30.25256176745302, -3.7365285084934845, 54.52439738997739)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-7.940759, -12.189504, 6.4903955), (-10.777588, -15.339767, 8.456779), (-14.09276, -18.746828, 9.3556385), (-13.13707, -23.65204, 12.66609), (-16.025318, -26.610376, 14.930019), (-19.726103, -29.467855, 16.389257), (-20.874937, -33.722157, 18.347366), (-24.08186, -36.966984, 19.683355)]
+            uniform token type = "linear"
+            float[] widths = [1.6, 1.4142857, 1.2285714, 1.0428572, 0.85714287, 0.67142856, 0.4857143, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-24.08186, -36.966984, 19.683355), (-26.871525, -35.792545, 21.32767), (-30.126678, -35.215153, 21.527119), (-34.07368, -36.909714, 20.467487), (-36.518837, -35.317448, 23.19658), (-39.657436, -34.422024, 23.649662)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-39.65808800483669, -34.75696908753167, 23.862025374629788)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-39.79249894997851, -34.78213610589464, 23.35034557112234)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-39.68661957837938, -34.41768493799552, 23.532282709924402)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-24.08186, -36.966984, 19.683355), (-24.969343, -38.795452, 17.427181), (-25.30577, -41.844864, 16.407328), (-26.99848, -44.326958, 15.578971), (-28.468746, -45.63046, 13.031995), (-29.76709, -47.802032, 11.51709)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-29.924406840745426, -47.6888997553653, 11.47650524812018)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-29.56853314602005, -48.06096616978127, 11.722411264381073)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-29.930076780902876, -47.51118441192827, 11.244658817741687)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-24.08186, -36.966984, 19.683355), (-23.789667, -38.70959, 22.004507), (-22.85305, -40.949158, 24.093328), (-23.839119, -41.780354, 26.834858), (-25.292988, -42.720898, 29.489155), (-24.82299, -43.777035, 32.1945)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-24.666005678667105, -43.65192981539792, 32.27189450125941)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-24.7190147940436, -43.95945049172195, 32.10136507513214)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-24.999418857824708, -44.10251957934796, 32.006879388599245)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-10.055078, -10.135946, -7.065615), (-13.057465, -12.972709, -8.556426), (-14.528162, -15.812973, -12.221962), (-18.359125, -18.010975, -13.449956), (-22.571657, -19.972456, -14.474242), (-23.958254, -23.61171, -17.113274), (-27.219055, -26.519072, -18.135061), (-29.3253, -29.561152, -20.606632)]
+            uniform token type = "linear"
+            float[] widths = [1.6, 1.4142857, 1.2285714, 1.0428572, 0.85714287, 0.67142856, 0.4857143, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-29.3253, -29.561152, -20.606632), (-31.840496, -30.54397, -20.642508), (-34.470695, -30.40508, -20.319143), (-36.849064, -31.070019, -20.949099), (-39.050396, -30.72149, -22.408472), (-41.345898, -29.85633, -23.533125)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-41.30257504378256, -29.903713778821142, -23.70630089892392)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-41.31551343878394, -29.852529389701008, -23.658319018604097)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-41.42386313050417, -29.714441819192622, -23.2271997712971)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-29.3253, -29.561152, -20.606632), (-27.93163, -32.896027, -22.116224), (-25.952768, -36.143883, -23.136011), (-25.187532, -39.882275, -23.246872), (-25.42149, -43.944843, -23.104065), (-24.233871, -47.517662, -23.499283)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-24.286371501028263, -47.5447017023137, -23.423833595520072)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-24.318918113625756, -47.49552823776013, -23.786370577711054)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-23.892667372155316, -47.35919045610159, -23.8824503974645)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(4.5284276, -6.4945207, -13.823149), (7.048753, -8.398448, -17.36975), (6.6923947, -11.3660755, -21.358984), (5.3059773, -11.782081, -26.884491), (11.3362665, -14.225787, -29.027632), (9.630258, -15.287453, -34.35449), (11.386983, -17.609222, -37.954926), (13.622648, -19.53715, -41.583504)]
+            uniform token type = "linear"
+            float[] widths = [1.6, 1.4142857, 1.2285714, 1.0428572, 0.85714287, 0.67142856, 0.4857143, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(13.622648, -19.53715, -41.583504), (12.721448, -21.824162, -44.534184), (11.402863, -24.565691, -46.69798), (8.489243, -28.168781, -46.927258), (8.492164, -30.006966, -50.926052), (7.484217, -33.18694, -52.723804)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (7.7876490711358555, -33.35196599197253, -52.688797265950555)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (7.514424949201811, -33.057116792733765, -52.89951520301447)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (7.850217038165871, -33.206450113025404, -52.90156795787797)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(13.622648, -19.53715, -41.583504), (12.822473, -18.450823, -44.606033), (11.95218, -19.117254, -48.202927), (11.944688, -16.417261, -50.69872), (13.432805, -16.268183, -54.034924), (13.579706, -14.533516, -56.847588)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (13.97223227331231, -14.573911069935374, -56.86193512443688)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (13.93360566275566, -14.479656198393535, -56.83092930437113)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (13.346087750530176, -14.3078888530329, -56.77297038775087)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+
+            def BasisCurves "Secondary_02" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(13.622648, -19.53715, -41.583504), (16.321802, -19.686916, -41.216564), (18.839014, -20.211103, -42.218784), (21.433594, -20.787178, -42.084805), (24.003633, -21.678339, -41.44115), (26.5197, -22.155615, -42.58129)]
+                uniform token type = "linear"
+                float[] widths = [0.88, 0.764, 0.648, 0.532, 0.416, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (26.620674581455205, -21.79606532231756, -42.2196681935872)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (26.505035586676204, -22.23777843345758, -42.555201237042745)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+
+                def Sphere "Spine_02" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </CorticalPyramidal/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (26.47740193430694, -22.43361329674859, -42.3984605464708)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+    }
+
+    def Scope "Axon"
+    {
+        def BasisCurves "Segment_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 0
+                bool is_myelinated = 1
+                int segment_index = 0
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_00> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -16.815, 0), (0, -29.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.3, 1.2272727] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 70
+                bool is_myelinated = 1
+                int segment_index = 1
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_01> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -29.315, 0), (0, -41.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.2272727, 1.1545454] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 140
+                bool is_myelinated = 0
+                int segment_index = 2
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_02> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -41.815, 0), (0, -54.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.1545454, 1.0818182] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 210
+                bool is_myelinated = 1
+                int segment_index = 3
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_03> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -54.315, 0), (0, -66.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.0818182, 1.0090909] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 280
+                bool is_myelinated = 1
+                int segment_index = 4
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_04> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -66.815, 0), (0, -79.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.0090909, 0.93636364] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 350
+                bool is_myelinated = 0
+                int segment_index = 5
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_05> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -79.315, 0), (0, -91.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.93636364, 0.8636364] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_06" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 420
+                bool is_myelinated = 1
+                int segment_index = 6
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_06> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -91.815, 0), (0, -104.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.8636364, 0.7909091] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_07" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 490
+                bool is_myelinated = 1
+                int segment_index = 7
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_07> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -104.315, 0), (0, -116.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.7909091, 0.7181818] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_08" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 560
+                bool is_myelinated = 0
+                int segment_index = 8
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_08> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -116.815, 0), (0, -129.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.7181818, 0.6454545] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_09" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 630
+                bool is_myelinated = 1
+                int segment_index = 9
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_09> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -129.315, 0), (0, -141.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.6454545, 0.57272726] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_10" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 700
+                bool is_myelinated = 1
+                int segment_index = 10
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_10> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -141.815, 0), (0, -154.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.57272726, 0.5] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_11" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 770
+                bool is_myelinated = 0
+                int segment_index = 11
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/PulseSeg_11> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -154.315, 0), (0, -166.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.5, 0.42727274] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -16.815, 0), (0, -29.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [2.0149999, 1.9022727] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -29.315, 0), (0, -41.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.9022727, 1.7895454] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -54.315, 0), (0, -66.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.6768183, 1.5640908] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -66.815, 0), (0, -79.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.5640908, 1.4513637] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_06" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -91.815, 0), (0, -104.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.3386364, 1.2259091] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_07" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -104.315, 0), (0, -116.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.2259091, 1.1131818] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_09" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -129.315, 0), (0, -141.815, 0)]
+            uniform token type = "linear"
+            float[] widths = [1.0004545, 0.88772726] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_10" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </CorticalPyramidal/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0, -141.815, 0), (0, -154.315, 0)]
+            uniform token type = "linear"
+            float[] widths = [0.88772726, 0.775] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+    }
+
+    def Scope "AxonTerminals"
+    {
+        def Sphere "Bouton_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </CorticalPyramidal/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.4
+            double3 xformOp:translate = (-1.9478623954160852, -169.02442285283598, -0.2143099948983777)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </CorticalPyramidal/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.4
+            double3 xformOp:translate = (-0.5030502265695165, -168.23161034154785, -2.0991219829583723)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </CorticalPyramidal/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.4
+            double3 xformOp:translate = (0.6215323994529867, -169.82295034354325, -0.359060606714395)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </CorticalPyramidal/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.4
+            double3 xformOp:translate = (1.702993565614976, -168.8678378971412, 1.18638744189331)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </CorticalPyramidal/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.4
+            double3 xformOp:translate = (-0.4553877008637486, -169.90735415192916, 1.1681810041188645)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+    }
+
+    def Scope "Materials"
+    {
+        def Material "NeuronMembraneMat"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/NeuronMembraneMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.88, 0.68, 0.72)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "ApicalMat"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/ApicalMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.92, 0.72, 0.65)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "AxonMat"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/AxonMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.4
+                token outputs:surface
+            }
+        }
+
+        def Material "MyelinMat"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/MyelinMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.88, 0.92, 1)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 0.3
+                float inputs:roughness = 0.2
+                token outputs:surface
+            }
+        }
+
+        def Material "TerminalFiredMat"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/TerminalFiredMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_00"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_00/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_01"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_01/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_02"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_02/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_03"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_03/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_04"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_04/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_05"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_05/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_06"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_06/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_07"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_07/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_08"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_08/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_09"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_09/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_10"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_10/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_11"
+        {
+            token outputs:surface.connect = </CorticalPyramidal/Materials/PulseSeg_11/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.7, 0.88)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+    }
+}
+

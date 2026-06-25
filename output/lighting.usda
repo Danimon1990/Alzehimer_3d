@@ -1,0 +1,38 @@
+#usda 1.0
+(
+    doc = """Neuro project — ambient lighting rig.
+    Kept as a separate sublayer so the scene can be referenced with different
+    lighting contexts (studio, dark-lab, presentation) without touching geometry.
+    """
+    upAxis = "Y"
+    metersPerUnit = 0.01
+)
+
+def Scope "Lights"
+{
+    # Low-intensity dome provides ambient fill so inactive neurons read as
+    # dark-warm shapes.  Intensity is intentionally kept low so the emissive
+    # REST glow (~0.05) is visible and the PEAK glow (1.0) reads as bright.
+    def DomeLight "AmbientDome" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:intensity = 0.35
+        float inputs:diffuse = 1.0
+        float inputs:specular = 0.1
+        color3f inputs:color = (0.08, 0.10, 0.14)   # cool dark-blue tint (lab / void feel)
+        token inputs:texture:format = "latlong"
+    }
+
+    # Subtle key light from above-right to give the soma spheres some shape.
+    def RectLight "KeyLight"
+    {
+        float inputs:intensity = 150.0
+        float inputs:width = 80.0
+        float inputs:height = 80.0
+        color3f inputs:color = (0.9, 0.88, 0.82)     # slightly warm white
+        double3 xformOp:translate = (120, 200, 80)
+        float3 xformOp:rotateXYZ = (-55, 30, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+    }
+}

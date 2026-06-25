@@ -1,0 +1,1876 @@
+#usda 1.0
+# Live-updated by neuron_usd/procedural_neuron.py
+(
+    defaultPrim = "Neuron"
+    endTimeCode = 120
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "Neuron" (
+    customData = {
+            string neuron_type = "pyramidal"
+            double propagation_speed_ms = 80
+            double refractory_period_ms = 2
+            double signal_threshold = 0.65
+            string species = "human"
+        }
+)
+{
+    def Sphere "Soma" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        double radius = 15
+        float3 xformOp:scale = (1.0, 1.0, 1.0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Scope "Dendrites" (
+        customData = {
+            string receptor_type = "AMPA"
+            int synapse_count = 24
+        }
+    )
+    {
+        def BasisCurves "Primary_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(12.7302, 1.8, 0.710708), (14.4713, 3.02703, 1.51039), (12.575, 2.82731, 0.619795), (11.4162, 3.09481, -0.277188), (10.1466, 4.17168, -0.158097), (8.9979, 4.90908, 0.479393), (6.65115, 6.85919, 0.898753), (6.17341, 5.16739, 1.8259)]
+            uniform token type = "linear"
+            float[] widths = [1.5, 1.32857, 1.15714, 0.985714, 0.814286, 0.642857, 0.471429, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(6.17341, 5.16739, 1.8259), (5.91596, 6.61185, 2.68743), (5.40202, 8.68706, 3.08187), (4.94817, 10.2162, 3.79549), (5.67105, 10.7875, 4.62357), (3.29357, 10.0309, 4.89944)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (2.62124, 9.71022, 4.26105)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (2.93833, 10.1937, 4.68317)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(6.17341, 5.16739, 1.8259), (7.62499, 6.09753, 1.59821), (6.1676, 7.33581, 0.777695), (5.50182, 9.56361, 0.591059), (5.51052, 10.6327, 0.674217), (6.35161, 9.97074, -0.320925)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (6.05633, 9.69202, -0.783353)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (7.06027, 10.4224, -0.617441)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0.792227, 1.8, 12.7254), (-2.15096, 0.938388, 13.5654), (-3.52167, 1.96934, 15.065), (-4.12709, 0.954813, 16.76), (-4.1158, -0.77882, 16.5921), (-6.34383, 0.492151, 17.8844), (-6.8218, -1.39482, 18.3722), (-4.08558, -0.674506, 20.0153)]
+            uniform token type = "linear"
+            float[] widths = [1.5, 1.32857, 1.15714, 0.985714, 0.814286, 0.642857, 0.471429, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-4.08558, -0.674506, 20.0153), (-4.72672, -0.783992, 20.4935), (-6.98445, -0.255307, 20.7227), (-6.04158, 1.94951, 20.6987), (-6.82099, 1.50497, 21.5383), (-6.19465, 1.51563, 22.0138)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-6.02029, 1.09904, 22.4338)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-6.13164, 1.84999, 22.0624)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-4.08558, -0.674506, 20.0153), (-3.25409, 1.22396, 19.6876), (-4.78462, 0.00340289, 19.4215), (-3.8853, -1.11179, 18.634), (-6.32137, 0.337824, 18.2187), (-8.53257, 0.703222, 17.5161)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-8.90848, 1.15014, 17.3932)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-8.99369, 0.750377, 17.884)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-12.659, 1.8, 1.5205), (-13.6194, 2.496, 0.879623), (-15.7749, 2.18685, 1.15466), (-17.9001, 1.21765, 0.415761), (-17.7797, 0.297294, 1.31234), (-16.3795, -1.50833, 0.900779), (-16.047, -2.51103, 0.282063), (-14.2219, -1.51561, 0.330451)]
+            uniform token type = "linear"
+            float[] widths = [1.5, 1.32857, 1.15714, 0.985714, 0.814286, 0.642857, 0.471429, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-14.2219, -1.51561, 0.330451), (-13.992, -1.45369, -0.358317), (-12.6295, -0.442574, -0.359288), (-13.6635, -0.460285, -1.21793), (-11.7971, -1.06306, -2.27486), (-11.5004, -1.00758, -3.2143)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-11.9007, -0.499666, -3.3053)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-10.9222, -0.947194, -3.93336)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-14.2219, -1.51561, 0.330451), (-11.8029, 0.678252, 0.637039), (-11.0586, 0.459314, 1.25582), (-11.9369, 0.868234, 2.65167), (-12.0303, 2.81652, 3.34223), (-11.524, 5.42315, 4.75153)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-11.4348, 5.68524, 4.19921)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-11.8493, 5.9856, 4.87822)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+
+        def BasisCurves "Primary_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [8]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0.215185, 1.8, -12.7482), (0.246735, 3.90381, -14.2284), (2.84268, 1.68102, -15.653), (3.39047, 2.79079, -16.9808), (1.27742, 5.10499, -18.2871), (1.82232, 5.9021, -19.2542), (2.30647, 6.15827, -19.211), (0.665908, 7.49753, -20.532)]
+            uniform token type = "linear"
+            float[] widths = [1.5, 1.32857, 1.15714, 0.985714, 0.814286, 0.642857, 0.471429, 0.3] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "Secondary_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(0.665908, 7.49753, -20.532), (1.8977, 6.31319, -20.8815), (4.06653, 8.63835, -21.7432), (3.25122, 8.18611, -21.4611), (4.97321, 10.0673, -21.9288), (3.94735, 11.7756, -21.9522)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (4.12603, 12.3602, -21.7058)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (3.15987, 12.1561, -22.2732)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+            def BasisCurves "Secondary_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [6]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(0.665908, 7.49753, -20.532), (-0.534042, 6.95541, -21.0463), (-1.1377, 8.30491, -21.342), (-2.0026, 9.76615, -22.241), (-1.78476, 12.2576, -22.3659), (-3.07261, 12.9183, -23.248)]
+                uniform token type = "linear"
+                float[] widths = [0.825, 0.72, 0.615, 0.51, 0.405, 0.3] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+                def Sphere "Spine_00" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-3.86693, 13.2437, -23.0286)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+                def Sphere "Spine_01" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    double radius = 0.45
+                    double3 xformOp:translate = (-3.45348, 13.2078, -23.1653)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                }
+            }
+        }
+    }
+
+    def Scope "Axon"
+    {
+        def BasisCurves "Segment_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 0.0
+                bool is_myelinated = 1
+                int segment_index = 0
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_00> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 14.25), (-0, -0, 24.25)]
+            uniform token type = "linear"
+            float[] widths = [1.2000000, 1.1409091] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 125.0
+                bool is_myelinated = 1
+                int segment_index = 1
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_01> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 24.25), (-0, -0, 34.25)]
+            uniform token type = "linear"
+            float[] widths = [1.1409091, 1.0818182] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 250.0
+                bool is_myelinated = 0
+                int segment_index = 2
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_02> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 34.25), (-0, -0, 44.25)]
+            uniform token type = "linear"
+            float[] widths = [1.0818182, 1.0227273] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 375.0
+                bool is_myelinated = 1
+                int segment_index = 3
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_03> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 44.25), (-0, -0, 54.25)]
+            uniform token type = "linear"
+            float[] widths = [1.0227273, 0.9636364] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 500.0
+                bool is_myelinated = 1
+                int segment_index = 4
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_04> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 54.25), (-0, -0, 64.25)]
+            uniform token type = "linear"
+            float[] widths = [0.9636364, 0.9045455] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 625.0
+                bool is_myelinated = 0
+                int segment_index = 5
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_05> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 64.25), (-0, -0, 74.25)]
+            uniform token type = "linear"
+            float[] widths = [0.9045455, 0.8454545] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_06" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 750.0
+                bool is_myelinated = 1
+                int segment_index = 6
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_06> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 74.25), (-0, -0, 84.25)]
+            uniform token type = "linear"
+            float[] widths = [0.8454545, 0.7863636] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_07" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 875.0
+                bool is_myelinated = 1
+                int segment_index = 7
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_07> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 84.25), (-0, -0, 94.25)]
+            uniform token type = "linear"
+            float[] widths = [0.7863636, 0.7272727] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_08" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 1000.0
+                bool is_myelinated = 0
+                int segment_index = 8
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_08> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 94.25), (-0, -0, 104.25)]
+            uniform token type = "linear"
+            float[] widths = [0.7272727, 0.6681818] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_09" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 1125.0
+                bool is_myelinated = 1
+                int segment_index = 9
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_09> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 104.25), (-0, -0, 114.25)]
+            uniform token type = "linear"
+            float[] widths = [0.6681818, 0.6090909] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_10" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 1250.0
+                bool is_myelinated = 1
+                int segment_index = 10
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_10> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 114.25), (-0, -0, 124.25)]
+            uniform token type = "linear"
+            float[] widths = [0.6090909, 0.5500000] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Segment_11" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                double delay_offset_ms = 1375.0
+                bool is_myelinated = 0
+                int segment_index = 11
+            }
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/PulseSeg_11> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 124.25), (-0, -0, 134.25)]
+            uniform token type = "linear"
+            float[] widths = [0.5500000, 0.4909091] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 14.25), (-0, -0, 24.25)]
+            uniform token type = "linear"
+            float[] widths = [1.8600000, 1.7684091] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 24.25), (-0, -0, 34.25)]
+            uniform token type = "linear"
+            float[] widths = [1.7684091, 1.6768182] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 44.25), (-0, -0, 54.25)]
+            uniform token type = "linear"
+            float[] widths = [1.5852273, 1.4936364] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 54.25), (-0, -0, 64.25)]
+            uniform token type = "linear"
+            float[] widths = [1.4936364, 1.4020455] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 74.25), (-0, -0, 84.25)]
+            uniform token type = "linear"
+            float[] widths = [1.3104545, 1.2188636] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 84.25), (-0, -0, 94.25)]
+            uniform token type = "linear"
+            float[] widths = [1.2188636, 1.1272727] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_06" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 104.25), (-0, -0, 114.25)]
+            uniform token type = "linear"
+            float[] widths = [1.0356818, 0.9440909] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Myelin_07" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [2]
+            rel material:binding = </Neuron/Materials/MyelinMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0, -0, 114.25), (-0, -0, 124.25)]
+            uniform token type = "linear"
+            float[] widths = [0.9440909, 0.8525000] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+    }
+
+    def Scope "AxonTerminals"
+    {
+        def Sphere "Bouton_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Neuron/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.2
+            double3 xformOp:translate = (-1.36557, -1.5378, 136.282)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Neuron/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.2
+            double3 xformOp:translate = (0.0681284, 1.3987, 135.08)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Neuron/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.2
+            double3 xformOp:translate = (-1.73231, -0.648354, 136.346)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "Bouton_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Neuron/Materials/TerminalFiredMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            double radius = 2.2
+            double3 xformOp:translate = (1.36923, 1.23928, 133.59)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+    }
+
+    def Scope "BoutonRootlets" (
+        customData = {
+            string role = "bouton_rootlets"
+            int rootlet_count = 16
+        }
+    )
+    {
+        def BasisCurves "Rootlet_00_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0.556942, -2.55732, 136.606), (3.5399, -0.101641, 137.676), (5.68908, 2.47171, 136.415), (7.31882, 1.20045, 137.374), (9.40825, 3.65233, 138.038)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_00_00_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(9.40825, 3.65233, 138.038), (11.2201, 2.01533, 138.723), (11.16, 0.767293, 139.372)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_00_00_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(9.40825, 3.65233, 138.038), (8.48122, 4.9952, 138.671), (7.32325, 5.29058, 138.371)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_00_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-2.21217, -3.34884, 137.201), (-3.7222, -6.34574, 137.17), (-1.99067, -7.90571, 137.56), (-1.779, -8.96506, 137.877), (-3.36423, -7.75928, 136.785)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_00_01_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-3.36423, -7.75928, 136.785), (-2.54535, -8.46089, 136.185), (-1.75652, -9.3224, 135.985)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_00_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-2.51228, -3.29461, 135.62), (-5.14691, -4.02662, 136.642), (-3.93134, -1.38212, 136.868), (-5.35034, -1.22169, 135.586), (-6.86759, -1.88761, 135.725)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_00_02_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-6.86759, -1.88761, 135.725), (-7.00902, -0.187513, 136.086), (-8.57688, -2.32442, 135.986)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_00_02_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-6.86759, -1.88761, 135.725), (-5.62875, -1.30799, 135.412), (-6.98434, -3.77571, 135.133)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_00_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.38893, -3.40481, 135.119), (-1.39196, -5.44693, 135.556), (-4.81681, -3.94018, 136.273), (-7.53436, -4.71416, 135.534), (-4.29227, -4.83846, 134.487)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_00_03_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-4.29227, -4.83846, 134.487), (-3.35138, -2.72452, 134.776), (-1.08293, -1.06398, 135.094)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_00_03_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-4.29227, -4.83846, 134.487), (-3.97079, -3.12948, 135.033), (-3.99334, -4.41918, 134.763)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_01_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(1.31435, -0.378084, 135.441), (-0.346761, -1.93222, 135.479), (-2.94126, -4.1055, 135.894), (-1.55943, -7.448, 135.608), (-1.32427, -8.32969, 134.83)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_01_00_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-1.32427, -8.32969, 134.83), (0.530501, -7.2044, 134.719), (-1.61366, -8.02414, 135.222)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_01_00_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-1.32427, -8.32969, 134.83), (-0.00542808, -8.07336, 134.964), (-1.16338, -9.35257, 134.823)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_01_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0.821495, -0.0461698, 136.558), (1.58351, -3.50914, 136.194), (1.94046, -6.97117, 136.44), (-0.703429, -7.39102, 135.234), (-1.64349, -9.56114, 134.705)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_01_01_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-1.64349, -9.56114, 134.705), (-2.861, -11.5753, 134.061), (-2.72891, -9.27484, 133.96)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_01_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.21217, -0.37249, 135.333), (-3.5196, -3.23717, 135.613), (-2.94592, -5.45965, 135.968), (-0.951742, -8.03336, 136.096), (0.909629, -10.9799, 136.744)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_01_02_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(0.909629, -10.9799, 136.744), (1.57072, -9.19515, 136.492), (2.40886, -11.5567, 136.722)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_01_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(0.370218, 0.0261781, 133.387), (2.37678, -1.31982, 133.347), (1.49889, -1.55451, 133.094), (3.97404, 0.425386, 132.263), (7.22767, 1.09806, 133.204)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_01_03_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(7.22767, 1.09806, 133.204), (6.11867, 2.48947, 133.471), (6.01272, 2.12954, 134.056)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_01_03_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(7.22767, 1.09806, 133.204), (5.18307, 2.88648, 132.928), (4.9153, 3.39979, 132.874)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_02_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0.783335, -2.45145, 135.516), (0.708344, -4.21505, 134.423), (3.92818, -7.31324, 135.068), (3.93161, -5.70357, 135.642), (5.03633, -5.96529, 136.466)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_02_00_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(5.03633, -5.96529, 136.466), (5.29714, -6.16658, 136.432), (4.82451, -5.0863, 136.068)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_02_00_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(5.03633, -5.96529, 136.466), (3.34267, -7.67094, 135.731), (3.60048, -6.69945, 135.103)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_02_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.42378, -1.79165, 138.2), (-3.55805, -3.91739, 137.303), (-6.95212, -3.89657, 136.638), (-3.62516, -3.74117, 137.01), (-6.2343, -1.38007, 136.876)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_02_01_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-6.2343, -1.38007, 136.876), (-7.6852, -3.66206, 137.575), (-7.75729, -2.32158, 137.385)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_02_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-2.91966, -2.49915, 136.277), (-5.57291, -0.85866, 136.676), (-3.52012, -2.98947, 136.869), (-3.84893, -3.60104, 137.89), (-0.401114, -5.174, 138.325)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_02_02_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-0.401114, -5.174, 138.325), (-1.65366, -4.38305, 137.632), (-3.08109, -6.3433, 136.685)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_02_02_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(-0.401114, -5.174, 138.325), (-1.68495, -4.32003, 138.567), (-1.92279, -3.55804, 139.172)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_02_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-1.28182, -2.65894, 135.575), (1.5561, -0.496478, 134.566), (-0.803402, -1.96715, 135.217), (-0.339914, -3.57084, 134.338), (0.959871, -2.29666, 135.464)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_02_03_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(0.959871, -2.29666, 135.464), (0.637676, -3.47635, 134.851), (-1.28582, -1.64998, 135.201)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_02_03_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(0.959871, -2.29666, 135.464), (1.80268, -3.34161, 134.928), (3.04023, -3.44191, 135.397)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_03_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(3.00283, 0.0625947, 134.477), (1.83368, 0.966377, 135.311), (0.639985, 2.03494, 134.75), (3.75402, 3.94275, 134.83), (3.43549, 2.35722, 134.354)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_03_00_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(3.43549, 2.35722, 134.354), (4.13433, 2.40383, 134.426), (2.6238, 1.60061, 135.063)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_03_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(1.23851, -0.58227, 134.817), (-1.29176, 2.56748, 135.139), (-2.99693, 0.0138482, 135.319), (-2.51142, -2.99597, 136.581), (0.498836, -3.42811, 135.699)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_03_01_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(0.498836, -3.42811, 135.699), (-0.566782, -1.9196, 136.493), (-1.77196, -1.74335, 136.306)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_03_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(-0.21582, -0.28369, 133.681), (2.76127, -0.265124, 134.442), (1.17849, -1.71083, 134.632), (4.60816, -1.81895, 133.747), (4.81557, -2.93868, 133.85)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_03_02_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(4.81557, -2.93868, 133.85), (5.72416, -2.83965, 133.275), (6.99957, -5.22292, 133.54)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_03_02_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(4.81557, -2.93868, 133.85), (5.67521, -1.45414, 134.591), (5.74355, -3.65313, 134.545)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+
+        def BasisCurves "Rootlet_03_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform token basis = "bezier"
+            int[] curveVertexCounts = [5]
+            rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            point3f[] points = [(1.47051, -0.498118, 132.244), (0.847628, 0.429845, 131.46), (0.641328, 3.55876, 131.127), (1.99753, 4.45212, 132.051), (4.47118, 6.812, 131.819)]
+            uniform token type = "linear"
+            float[] widths = [0.52, 0.415, 0.31, 0.205, 0.1] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+
+            def BasisCurves "RootSec_03_03_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(4.47118, 6.812, 131.819), (2.38614, 4.73772, 132.199), (4.46075, 7.02976, 132.769)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+            def BasisCurves "RootSec_03_03_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token basis = "bezier"
+                int[] curveVertexCounts = [3]
+                rel material:binding = </Neuron/Materials/NeuronMembraneMat> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+                point3f[] points = [(4.47118, 6.812, 131.819), (6.19325, 6.21061, 132.197), (8.06029, 3.74008, 132.743)]
+                uniform token type = "linear"
+                float[] widths = [0.29, 0.185, 0.08] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+
+            }
+        }
+    }
+
+    def Scope "Materials"
+    {
+        def Material "NeuronMembraneMat"
+        {
+            token outputs:surface.connect = </Neuron/Materials/NeuronMembraneMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.85, 0.75, 0.6)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.6
+                token outputs:surface
+            }
+        }
+
+        def Material "AxonMat"
+        {
+            token outputs:surface.connect = </Neuron/Materials/AxonMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.4
+                token outputs:surface
+            }
+        }
+
+        def Material "MyelinMat"
+        {
+            token outputs:surface.connect = </Neuron/Materials/MyelinMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.88, 0.93, 1)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 0.3
+                float inputs:roughness = 0.2
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseMat"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "TerminalFiredMat"
+        {
+            token outputs:surface.connect = </Neuron/Materials/TerminalFiredMat/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_00"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_00/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_01"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_01/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_02"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_02/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_03"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_03/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_04"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_04/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_05"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_05/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_06"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_06/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_07"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_07/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_08"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_08/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_09"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_09/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_10"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_10/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "PulseSeg_11"
+        {
+            token outputs:surface.connect = </Neuron/Materials/PulseSeg_11/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.7, 0.85)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+    }
+}
