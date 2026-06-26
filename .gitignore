@@ -9,6 +9,7 @@ __pycache__/
 # Binary assets (large files — track source .usda instead)
 assets/*.blend
 assets/*.usdc
+!assets/microtubules.usdc
 assets/textures/
 
 # Screenshots / renders
