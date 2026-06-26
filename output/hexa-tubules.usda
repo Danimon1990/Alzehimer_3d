@@ -1,0 +1,67 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Xform "HexaTubules"
+    {
+        def "CenterChain" (
+            instanceable = true
+            prepend references = @./microtubule_chain.usda@</World/MicrotubuleChain>
+        )
+        {
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def "RingChain_01" (
+            instanceable = true
+            prepend references = @./microtubule_chain.usda@</World/MicrotubuleChain>
+        )
+        {
+            double3 xformOp:translate = (3, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def "RingChain_02" (
+            instanceable = true
+            prepend references = @./microtubule_chain.usda@</World/MicrotubuleChain>
+        )
+        {
+            double3 xformOp:translate = (0.9270510077476501, 0, 2.8531694412231445)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def "RingChain_03" (
+            instanceable = true
+            prepend references = @./microtubule_chain.usda@</World/MicrotubuleChain>
+        )
+        {
+            double3 xformOp:translate = (-2.427051067352295, 0, 1.7633557319641113)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def "RingChain_04" (
+            instanceable = true
+            prepend references = @./microtubule_chain.usda@</World/MicrotubuleChain>
+        )
+        {
+            double3 xformOp:translate = (-2.427051067352295, 0, -1.7633557319641113)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def "RingChain_05" (
+            instanceable = true
+            prepend references = @./microtubule_chain.usda@</World/MicrotubuleChain>
+        )
+        {
+            double3 xformOp:translate = (0.9270510077476501, 0, -2.8531694412231445)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+    }
+}
+

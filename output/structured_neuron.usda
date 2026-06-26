@@ -1,0 +1,777 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Xform "Neuron"
+    {
+        def Scope "Neurites"
+        {
+            def BasisCurves "Axon" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [22]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(0, -10, 0), (0, -15.916, 0), (0, -21.832, 0), (0, -27.748, 0), (0, -33.664, 0), (0, -39.58, 0), (0, -45.496, 0), (0, -51.412, 0), (0, -57.328, 0), (0, -63.244, 0), (0, -69.16, 0), (0, -75.076, 0), (0, -80.992, 0), (0, -86.908, 0), (0, -92.824, 0), (0, -98.74, 0), (0, -104.656, 0), (0, -110.572, 0), (0, -116.488, 0), (0, -122.404, 0), (0, -128.32, 0), (0, -130, 0)]
+                uniform token type = "linear"
+                float[] widths = [5.2, 5.11126, 5.02252, 4.93378, 4.84504, 4.7563, 4.66756, 4.57882, 4.49008, 4.40134, 4.3126, 4.22386, 4.13512, 4.04638, 3.95764, 3.8689, 3.78016, 3.69142, 3.60268, 3.51394, 3.4252, 3.4] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_00_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(7.8, 0, 0), (12.55, 2.1557338, 0), (17.3, 4.0784273, 0), (22.05, 5.570518, 0), (26.8, 6.5, 0), (31.55, 6.820518, 0), (36.3, 6.5784273, 0), (41.05, 5.9057336, 0), (45.8, 5, 0)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_00_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(31.55, 6.820518, 0), (35.932827, 8.220518, -1.9572501), (40.31565, 9.620518, -3.9145002), (44.69848, 11.020517, -5.8717504), (49.081306, 12.420518, -7.8290005), (53.464134, 13.8205185, -9.786251)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_00_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(31.55, 6.820518, 0), (35.932827, 8.220518, 1.9572501), (40.31565, 9.620518, 3.9145002), (44.69848, 11.020517, 5.8717504), (49.081306, 12.420518, 7.8290005), (53.464134, 13.8205185, 9.786251)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_01_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(5.515433, -0, 5.515433), (8.87419, -2.538417, 8.87419), (12.232947, -4.785534, 12.232947), (15.591704, -6.4943976, 15.591704), (18.950462, -7.5, 18.950462), (22.30922, -7.7443976, 22.30922), (25.667976, -7.285534, 25.667976), (29.026733, -6.2884173, 29.026733), (32.38549, -5, 32.38549)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_01_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(22.30922, -7.7443976, 22.30922), (26.792332, -9.144398, 24.02436), (31.275442, -10.544397, 25.739502), (35.758553, -11.944397, 27.454645), (40.241665, -13.344398, 29.169786), (44.724777, -14.744398, 30.884928)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_01_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(22.30922, -7.7443976, 22.30922), (24.02436, -9.144398, 26.792332), (25.739502, -10.544397, 31.275442), (27.454645, -11.944397, 35.758553), (29.169786, -13.344398, 40.241665), (30.884928, -14.744398, 44.724777)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_02_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(4.776123e-16, 0, 7.8), (7.684659e-16, 2.9211006, 12.55), (1.0593195e-15, 5.4926405, 17.3), (1.3501732e-15, 7.4182773, 22.05), (1.6410268e-15, 8.5, 26.8), (1.9318803e-15, 8.668277, 31.55), (2.222734e-15, 7.9926405, 36.3), (2.5135876e-15, 6.6711006, 41.05), (2.8044414e-15, 5, 45.8)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_02_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(1.9318803e-15, 8.668277, 31.55), (1.9572501, 10.068276, 35.932827), (3.9145002, 11.468277, 40.31565), (5.8717504, 12.868277, 44.69848), (7.8290005, 14.268276, 49.081306), (9.786251, 15.668277, 53.464134)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_02_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(1.9318803e-15, 8.668277, 31.55), (-1.9572501, 10.068276, 35.932827), (-3.9145002, 11.468277, 40.31565), (-5.8717504, 12.868277, 44.69848), (-7.8290005, 14.268276, 49.081306), (-9.786251, 15.668277, 53.464134)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_03_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-5.515433, -0, 5.515433), (-8.87419, -2.1557338, 8.87419), (-12.232947, -4.0784273, 12.232947), (-15.591704, -5.570518, 15.591704), (-18.950462, -6.5, 18.950462), (-22.30922, -6.820518, 22.30922), (-25.667976, -6.5784273, 25.667976), (-29.026733, -5.9057336, 29.026733), (-32.38549, -5, 32.38549)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_03_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-22.30922, -6.820518, 22.30922), (-24.02436, -8.220518, 26.792332), (-25.739502, -9.620518, 31.275442), (-27.454645, -11.020517, 35.758553), (-29.169786, -12.420518, 40.241665), (-30.884928, -13.8205185, 44.724777)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_03_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-22.30922, -6.820518, 22.30922), (-26.792332, -8.220518, 24.02436), (-31.275442, -9.620518, 25.739502), (-35.758553, -11.020517, 27.454645), (-40.241665, -12.420518, 29.169786), (-44.724777, -13.8205185, 30.884928)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_04_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-7.8, 0, 9.552246e-16), (-12.55, 2.538417, 1.5369318e-15), (-17.3, 4.785534, 2.118639e-15), (-22.05, 6.4943976, 2.7003463e-15), (-26.8, 7.5, 3.2820536e-15), (-31.55, 7.7443976, 3.8637607e-15), (-36.3, 7.285534, 4.445468e-15), (-41.05, 6.2884173, 5.0271753e-15), (-45.8, 5, 5.6088828e-15)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_04_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-31.55, 7.7443976, 3.8637607e-15), (-35.932827, 9.144398, 1.9572501), (-40.31565, 10.544397, 3.9145002), (-44.69848, 11.944397, 5.8717504), (-49.081306, 13.344398, 7.8290005), (-53.464134, 14.744398, 9.786251)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_04_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-31.55, 7.7443976, 3.8637607e-15), (-35.932827, 9.144398, -1.9572501), (-40.31565, 10.544397, -3.9145002), (-44.69848, 11.944397, -5.8717504), (-49.081306, 13.344398, -7.8290005), (-53.464134, 14.744398, -9.786251)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_05_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-5.515433, -0, -5.515433), (-8.87419, -2.9211006, -8.87419), (-12.232947, -5.4926405, -12.232947), (-15.591704, -7.4182773, -15.591704), (-18.950462, -8.5, -18.950462), (-22.30922, -8.668277, -22.30922), (-25.667976, -7.9926405, -25.667976), (-29.026733, -6.6711006, -29.026733), (-32.38549, -5, -32.38549)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_05_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-22.30922, -8.668277, -22.30922), (-26.792332, -10.068276, -24.02436), (-31.275442, -11.468277, -25.739502), (-35.758553, -12.868277, -27.454645), (-40.241665, -14.268276, -29.169786), (-44.724777, -15.668277, -30.884928)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_05_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-22.30922, -8.668277, -22.30922), (-24.02436, -10.068276, -26.792332), (-25.739502, -11.468277, -31.275442), (-27.454645, -12.868277, -35.758553), (-29.169786, -14.268276, -40.241665), (-30.884928, -15.668277, -44.724777)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_06_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-1.4328367e-15, 0, -7.8), (-2.3053975e-15, 2.1557338, -12.55), (-3.1779584e-15, 4.0784273, -17.3), (-4.050519e-15, 5.570518, -22.05), (-4.92308e-15, 6.5, -26.8), (-5.795641e-15, 6.820518, -31.55), (-6.6682017e-15, 6.5784273, -36.3), (-7.5407625e-15, 5.9057336, -41.05), (-8.413323e-15, 5, -45.8)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_06_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-5.795641e-15, 6.820518, -31.55), (-1.9572501, 8.220518, -35.932827), (-3.9145002, 9.620518, -40.31565), (-5.8717504, 11.020517, -44.69848), (-7.8290005, 12.420518, -49.081306), (-9.786251, 13.8205185, -53.464134)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_06_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-5.795641e-15, 6.820518, -31.55), (1.9572501, 8.220518, -35.932827), (3.9145002, 9.620518, -40.31565), (5.8717504, 11.020517, -44.69848), (7.8290005, 12.420518, -49.081306), (9.786251, 13.8205185, -53.464134)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_07_Primary" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [9]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(5.515433, -0, -5.515433), (8.87419, -2.538417, -8.87419), (12.232947, -4.785534, -12.232947), (15.591704, -6.4943976, -15.591704), (18.950462, -7.5, -18.950462), (22.30922, -7.7443976, -22.30922), (25.667976, -7.285534, -25.667976), (29.026733, -6.2884173, -29.026733), (32.38549, -5, -32.38549)]
+                uniform token type = "linear"
+                float[] widths = [4.2, 3.825, 3.45, 3.075, 2.7, 2.325, 1.95, 1.575, 1.2] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_07_Branch_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(22.30922, -7.7443976, -22.30922), (24.02436, -9.144398, -26.792332), (25.739502, -10.544397, -31.275442), (27.454645, -11.944397, -35.758553), (29.169786, -13.344398, -40.241665), (30.884928, -14.744398, -44.724777)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "Dendrite_07_Branch_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [6]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(22.30922, -7.7443976, -22.30922), (26.792332, -9.144398, -24.02436), (31.275442, -10.544397, -25.739502), (35.758553, -11.944397, -27.454645), (40.241665, -13.344398, -29.169786), (44.724777, -14.744398, -30.884928)]
+                uniform token type = "linear"
+                float[] widths = [2, 1.73, 1.46, 1.19, 0.92, 0.65] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "AxonCollateral_00" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [7]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(-0, -46, 0), (-5.3333335, -47.333332, 2.5), (-10.666667, -48.666668, 4.3301272), (-16, -50, 5), (-21.333334, -51.333332, 4.3301272), (-26.666666, -52.666668, 2.5), (-32, -54, 6.123234e-16)]
+                uniform token type = "linear"
+                float[] widths = [2.4, 2.1333334, 1.8666667, 1.6, 1.3333334, 1.0666667, 0.8] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+
+            def BasisCurves "AxonCollateral_01" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                int[] curveVertexCounts = [7]
+                rel material:binding = </World/Looks/CellMembrane>
+                point3f[] points = [(0, -82, 0), (5.3333335, -83.333336, 2.5), (10.666667, -84.666664, 4.3301272), (16, -86, 5), (21.333334, -87.333336, 4.3301272), (26.666666, -88.666664, 2.5), (32, -90, 6.123234e-16)]
+                uniform token type = "linear"
+                float[] widths = [2.4, 2.1333334, 1.8666667, 1.6, 1.3333334, 1.0666667, 0.8] (
+                    interpolation = "vertex"
+                )
+                uniform token wrap = "nonperiodic"
+            }
+        }
+
+        def Sphere "Soma" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/Looks/CellMembrane>
+            double radius = 10
+            float3 xformOp:scale = (1.12, 0.92, 1.04)
+            uniform token[] xformOpOrder = ["xformOp:scale"]
+        }
+    }
+
+    def Scope "Guides"
+    {
+        def BasisCurves "Axon"
+        {
+            int[] curveVertexCounts = [22]
+            custom token neuron:role = "axon"
+            point3f[] points = [(0, -10, 0), (0, -15.916, 0), (0, -21.832, 0), (0, -27.748, 0), (0, -33.664, 0), (0, -39.58, 0), (0, -45.496, 0), (0, -51.412, 0), (0, -57.328, 0), (0, -63.244, 0), (0, -69.16, 0), (0, -75.076, 0), (0, -80.992, 0), (0, -86.908, 0), (0, -92.824, 0), (0, -98.74, 0), (0, -104.656, 0), (0, -110.572, 0), (0, -116.488, 0), (0, -122.404, 0), (0, -128.32, 0), (0, -130, 0)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_00_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(7.8, 0, 0), (12.55, 2.1557338, 0), (17.3, 4.0784273, 0), (22.05, 5.570518, 0), (26.8, 6.5, 0), (31.55, 6.820518, 0), (36.3, 6.5784273, 0), (41.05, 5.9057336, 0), (45.8, 5, 0)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_00_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(31.55, 6.820518, 0), (35.932827, 8.220518, -1.9572501), (40.31565, 9.620518, -3.9145002), (44.69848, 11.020517, -5.8717504), (49.081306, 12.420518, -7.8290005), (53.464134, 13.8205185, -9.786251)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_00_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(31.55, 6.820518, 0), (35.932827, 8.220518, 1.9572501), (40.31565, 9.620518, 3.9145002), (44.69848, 11.020517, 5.8717504), (49.081306, 12.420518, 7.8290005), (53.464134, 13.8205185, 9.786251)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_01_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(5.515433, -0, 5.515433), (8.87419, -2.538417, 8.87419), (12.232947, -4.785534, 12.232947), (15.591704, -6.4943976, 15.591704), (18.950462, -7.5, 18.950462), (22.30922, -7.7443976, 22.30922), (25.667976, -7.285534, 25.667976), (29.026733, -6.2884173, 29.026733), (32.38549, -5, 32.38549)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_01_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(22.30922, -7.7443976, 22.30922), (26.792332, -9.144398, 24.02436), (31.275442, -10.544397, 25.739502), (35.758553, -11.944397, 27.454645), (40.241665, -13.344398, 29.169786), (44.724777, -14.744398, 30.884928)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_01_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(22.30922, -7.7443976, 22.30922), (24.02436, -9.144398, 26.792332), (25.739502, -10.544397, 31.275442), (27.454645, -11.944397, 35.758553), (29.169786, -13.344398, 40.241665), (30.884928, -14.744398, 44.724777)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_02_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(4.776123e-16, 0, 7.8), (7.684659e-16, 2.9211006, 12.55), (1.0593195e-15, 5.4926405, 17.3), (1.3501732e-15, 7.4182773, 22.05), (1.6410268e-15, 8.5, 26.8), (1.9318803e-15, 8.668277, 31.55), (2.222734e-15, 7.9926405, 36.3), (2.5135876e-15, 6.6711006, 41.05), (2.8044414e-15, 5, 45.8)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_02_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(1.9318803e-15, 8.668277, 31.55), (1.9572501, 10.068276, 35.932827), (3.9145002, 11.468277, 40.31565), (5.8717504, 12.868277, 44.69848), (7.8290005, 14.268276, 49.081306), (9.786251, 15.668277, 53.464134)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_02_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(1.9318803e-15, 8.668277, 31.55), (-1.9572501, 10.068276, 35.932827), (-3.9145002, 11.468277, 40.31565), (-5.8717504, 12.868277, 44.69848), (-7.8290005, 14.268276, 49.081306), (-9.786251, 15.668277, 53.464134)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_03_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-5.515433, -0, 5.515433), (-8.87419, -2.1557338, 8.87419), (-12.232947, -4.0784273, 12.232947), (-15.591704, -5.570518, 15.591704), (-18.950462, -6.5, 18.950462), (-22.30922, -6.820518, 22.30922), (-25.667976, -6.5784273, 25.667976), (-29.026733, -5.9057336, 29.026733), (-32.38549, -5, 32.38549)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_03_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-22.30922, -6.820518, 22.30922), (-24.02436, -8.220518, 26.792332), (-25.739502, -9.620518, 31.275442), (-27.454645, -11.020517, 35.758553), (-29.169786, -12.420518, 40.241665), (-30.884928, -13.8205185, 44.724777)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_03_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-22.30922, -6.820518, 22.30922), (-26.792332, -8.220518, 24.02436), (-31.275442, -9.620518, 25.739502), (-35.758553, -11.020517, 27.454645), (-40.241665, -12.420518, 29.169786), (-44.724777, -13.8205185, 30.884928)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_04_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-7.8, 0, 9.552246e-16), (-12.55, 2.538417, 1.5369318e-15), (-17.3, 4.785534, 2.118639e-15), (-22.05, 6.4943976, 2.7003463e-15), (-26.8, 7.5, 3.2820536e-15), (-31.55, 7.7443976, 3.8637607e-15), (-36.3, 7.285534, 4.445468e-15), (-41.05, 6.2884173, 5.0271753e-15), (-45.8, 5, 5.6088828e-15)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_04_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-31.55, 7.7443976, 3.8637607e-15), (-35.932827, 9.144398, 1.9572501), (-40.31565, 10.544397, 3.9145002), (-44.69848, 11.944397, 5.8717504), (-49.081306, 13.344398, 7.8290005), (-53.464134, 14.744398, 9.786251)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_04_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-31.55, 7.7443976, 3.8637607e-15), (-35.932827, 9.144398, -1.9572501), (-40.31565, 10.544397, -3.9145002), (-44.69848, 11.944397, -5.8717504), (-49.081306, 13.344398, -7.8290005), (-53.464134, 14.744398, -9.786251)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_05_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-5.515433, -0, -5.515433), (-8.87419, -2.9211006, -8.87419), (-12.232947, -5.4926405, -12.232947), (-15.591704, -7.4182773, -15.591704), (-18.950462, -8.5, -18.950462), (-22.30922, -8.668277, -22.30922), (-25.667976, -7.9926405, -25.667976), (-29.026733, -6.6711006, -29.026733), (-32.38549, -5, -32.38549)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_05_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-22.30922, -8.668277, -22.30922), (-26.792332, -10.068276, -24.02436), (-31.275442, -11.468277, -25.739502), (-35.758553, -12.868277, -27.454645), (-40.241665, -14.268276, -29.169786), (-44.724777, -15.668277, -30.884928)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_05_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-22.30922, -8.668277, -22.30922), (-24.02436, -10.068276, -26.792332), (-25.739502, -11.468277, -31.275442), (-27.454645, -12.868277, -35.758553), (-29.169786, -14.268276, -40.241665), (-30.884928, -15.668277, -44.724777)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_06_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-1.4328367e-15, 0, -7.8), (-2.3053975e-15, 2.1557338, -12.55), (-3.1779584e-15, 4.0784273, -17.3), (-4.050519e-15, 5.570518, -22.05), (-4.92308e-15, 6.5, -26.8), (-5.795641e-15, 6.820518, -31.55), (-6.6682017e-15, 6.5784273, -36.3), (-7.5407625e-15, 5.9057336, -41.05), (-8.413323e-15, 5, -45.8)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_06_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-5.795641e-15, 6.820518, -31.55), (-1.9572501, 8.220518, -35.932827), (-3.9145002, 9.620518, -40.31565), (-5.8717504, 11.020517, -44.69848), (-7.8290005, 12.420518, -49.081306), (-9.786251, 13.8205185, -53.464134)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_06_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(-5.795641e-15, 6.820518, -31.55), (1.9572501, 8.220518, -35.932827), (3.9145002, 9.620518, -40.31565), (5.8717504, 11.020517, -44.69848), (7.8290005, 12.420518, -49.081306), (9.786251, 13.8205185, -53.464134)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_07_Primary"
+        {
+            int[] curveVertexCounts = [9]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(5.515433, -0, -5.515433), (8.87419, -2.538417, -8.87419), (12.232947, -4.785534, -12.232947), (15.591704, -6.4943976, -15.591704), (18.950462, -7.5, -18.950462), (22.30922, -7.7443976, -22.30922), (25.667976, -7.285534, -25.667976), (29.026733, -6.2884173, -29.026733), (32.38549, -5, -32.38549)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_07_Branch_00"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(22.30922, -7.7443976, -22.30922), (24.02436, -9.144398, -26.792332), (25.739502, -10.544397, -31.275442), (27.454645, -11.944397, -35.758553), (29.169786, -13.344398, -40.241665), (30.884928, -14.744398, -44.724777)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "Dendrite_07_Branch_01"
+        {
+            int[] curveVertexCounts = [6]
+            custom token neuron:role = "dendrite"
+            point3f[] points = [(22.30922, -7.7443976, -22.30922), (26.792332, -9.144398, -24.02436), (31.275442, -10.544397, -25.739502), (35.758553, -11.944397, -27.454645), (40.241665, -13.344398, -29.169786), (44.724777, -14.744398, -30.884928)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "AxonCollateral_00"
+        {
+            int[] curveVertexCounts = [7]
+            custom token neuron:role = "axonCollateral"
+            point3f[] points = [(-0, -46, 0), (-5.3333335, -47.333332, 2.5), (-10.666667, -48.666668, 4.3301272), (-16, -50, 5), (-21.333334, -51.333332, 4.3301272), (-26.666666, -52.666668, 2.5), (-32, -54, 6.123234e-16)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+
+        def BasisCurves "AxonCollateral_01"
+        {
+            int[] curveVertexCounts = [7]
+            custom token neuron:role = "axonCollateral"
+            point3f[] points = [(0, -82, 0), (5.3333335, -83.333336, 2.5), (10.666667, -84.666664, 4.3301272), (16, -86, 5), (21.333334, -87.333336, 4.3301272), (26.666666, -88.666664, 2.5), (32, -90, 6.123234e-16)]
+            uniform token purpose = "guide"
+            uniform token type = "linear"
+            float[] widths = [0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15] (
+                interpolation = "vertex"
+            )
+            uniform token wrap = "nonperiodic"
+        }
+    }
+
+    def Scope "Looks"
+    {
+        def Material "CellMembrane"
+        {
+            token outputs:surface.connect = </World/Looks/CellMembrane/PreviewSurface.outputs:surface>
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.32, 0.12, 0.48)
+                float inputs:ior = 1.38
+                float inputs:metallic = 0
+                float inputs:opacity = 0.32
+                float inputs:roughness = 0.38
+                token outputs:surface
+            }
+        }
+    }
+}
+
