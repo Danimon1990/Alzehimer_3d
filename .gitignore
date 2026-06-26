@@ -16,3 +16,4 @@ assets/textures/
 output/*.png
 output/*.jpg
 output/*.exr
+.DS_Store
