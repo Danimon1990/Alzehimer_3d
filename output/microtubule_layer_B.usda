@@ -1,0 +1,50 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+over "World"
+{
+    over "Materials"
+    {
+        def Material "MicrotubuleGlow_B"
+        {
+            token outputs:surface.connect = </World/Materials/MicrotubuleGlow_B/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.16, 0.62, 0.92)
+                color3f inputs:emissiveColor = (0.04, 0.14, 0.28)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.28
+                token outputs:surface
+            }
+        }
+    }
+
+    over "NeuronModel"
+    {
+        variantSet "neuronModel" = {
+            "ArtistNeuron" {
+                def "Microtubules_B" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                    prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+                )
+                {
+                    rel material:binding = </World/Materials/MicrotubuleGlow_B> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                    float xformOp:rotateX = 150
+                    float xformOp:rotateY = 45
+                    float3 xformOp:scale = (0.15, 0.15, 0.15)
+                    double3 xformOp:translate = (3.2, 0.6, 1.8)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+    }
+}

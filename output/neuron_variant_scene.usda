@@ -1,7 +1,36 @@
 #usda 1.0
 (
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 500)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (-28.707524919777548, 54.559326631521905, -13.65804189626876)
+                double3 target = (18.156764389347188, -35.854556738381625, -0.9312827839786308)
+            }
+            dictionary Right = {
+                double3 position = (-500, 0, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 500, 0)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./neuron_variant_scene.usda"
+        }
+        dictionary renderSettings = {
+        }
+    }
     defaultPrim = "World"
     metersPerUnit = 0.01
+    subLayers = [
+        @./microtubule_layer_B.usda@
+    ]
     upAxis = "Y"
 )
 
@@ -48,6 +77,177 @@ def Xform "World"
         prepend variantSets = "neuronModel"
     )
     {
+        over "NeuronShell"
+        {
+            float xformOp:rotateX = -93.738335
+            float xformOp:rotateY = 0.44405317
+            float xformOp:rotateZ = 6.523333
+            float3 xformOp:scale = (3.3, 3.3, 3.3)
+            double3 xformOp:translate = (-0.7692236665569981, 4.718571919619595, -6.6885030774645844e-15)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_B"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    token visibility = "invisible"
+                }
+            }
+        }
+
+        def "Microtubules_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 180
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.15, 0.15, 0.15)
+            double3 xformOp:translate = (-0.4, -7.733460325034177, 4.5002969044673766e-29)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def "Microtubules_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 180
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.15, 0.15, 0.15)
+            double3 xformOp:translate = (-0.4, -19.762036118033034, -6.352650832591862e-30)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, -18.75350068705029, -2.296641458920211e-15)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        def "Microtubules_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 179.57585
+            float xformOp:rotateY = -0.063509375
+            float xformOp:rotateZ = -0.9031304
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.39999999999999963, -26.60000000000001, 4.226416694238857e-17)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def "Microtubules_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 177
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.4, -33.600000000000016, 1.2954789903763435e-15)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def "Microtubules_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 173.04268
+            float xformOp:rotateY = 0.10218263
+            float xformOp:rotateZ = 0.57034796
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.4, -40.59040674328204, 0.3663516937006086)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def "Microtubules_06" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 168.09775
+            float xformOp:rotateY = 0.28483644
+            float xformOp:rotateZ = 1.2711451
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.4, -47.52847753032112, 1.7313329221557898)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (9.999999850988381, 2.8421709430404007e-13, 9.999999850988445)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        def "Microtubules_07" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @./microtubule_bundle.usda@</World/MicrotubuleBundle>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "strongerThanDescendants"
+            )
+            float xformOp:rotateX = 149.99596
+            float xformOp:rotateY = 34.988605
+            float xformOp:rotateZ = 82.94259
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-9.87879246162429, 10.49325547598596, -3.4051787773055957)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (9.999999850988381, 2.8421709430404007e-13, 9.999999850988445)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
         variantSet "neuronModel" = {
             "ArtistNeuron" {
                 def Xform "NeuronShell" (
@@ -98,5 +298,179 @@ def Xform "World"
             }
         }
     }
+}
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (1280, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars"
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+        }
+    }
+}
+
+over "OmniverseKit_Persp" (
+    prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (0.01, 10000000)
+    float exposure:fStop = 5
+    float exposure:responsivity = 1.1026709
+    float exposure:time = 0.02
+    float focalLength = 18.147562
+    float focusDistance = 400
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -102.62992894851924)
+    float3 xformOp:rotateXYZ = (118.24041, -74.806816, 180)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (-28.707524919777548, 54.559326631521905, -13.65804189626876)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Front" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -500)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (-0, 0, -0)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 500)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Right" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -500)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (0, -90, -0)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (-500, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Top" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -500)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (90, -4.961563e-15, 180)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 500, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
 }
 
