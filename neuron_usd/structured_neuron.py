@@ -24,8 +24,10 @@ def lerp(start, end, amount):
 
 
 def create_material(stage):
-    material = UsdShade.Material.Define(stage, "/World/Looks/CellMembrane")
-    shader = UsdShade.Shader.Define(stage, "/World/Looks/CellMembrane/PreviewSurface")
+    material = UsdShade.Material.Define(stage, "/World/Neuron/Looks/CellMembrane")
+    shader = UsdShade.Shader.Define(
+        stage, "/World/Neuron/Looks/CellMembrane/PreviewSurface"
+    )
     shader.CreateIdAttr("UsdPreviewSurface")
     shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(
         Gf.Vec3f(0.32, 0.12, 0.48)
@@ -159,7 +161,7 @@ def build_stage():
     UsdGeom.Xform.Define(stage, "/World/Neuron")
     UsdGeom.Scope.Define(stage, "/World/Neuron/Neurites")
     UsdGeom.Scope.Define(stage, "/World/Guides")
-    UsdGeom.Scope.Define(stage, "/World/Looks")
+    UsdGeom.Scope.Define(stage, "/World/Neuron/Looks")
 
     material = create_material(stage)
 
