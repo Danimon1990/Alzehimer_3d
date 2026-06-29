@@ -68,22 +68,6 @@ def Xform "World"
                 token outputs:surface
             }
         }
-
-        def Material "TauGlow"
-        {
-            token outputs:surface.connect = </World/Materials/TauGlow/Shader.outputs:surface>
-
-            def Shader "Shader"
-            {
-                uniform token info:id = "UsdPreviewSurface"
-                color3f inputs:diffuseColor = (0.9, 0.75, 0.05)
-                color3f inputs:emissiveColor = (0.25, 0.18, 0.01)
-                float inputs:metallic = 0
-                float inputs:opacity = 1
-                float inputs:roughness = 0.28
-                token outputs:surface
-            }
-        }
     }
 
     def Xform "NeuronModel" (
@@ -135,15 +119,6 @@ def Xform "World"
             float3 xformOp:scale = (0.15, 0.15, 0.15)
             double3 xformOp:translate = (-0.4, -7.733460325034177, 4.5002969044673766e-29)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_02" (
@@ -173,15 +148,6 @@ def Xform "World"
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
             }
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_03" (
@@ -198,15 +164,6 @@ def Xform "World"
             float3 xformOp:scale = (0.1, 0.1, 0.1)
             double3 xformOp:translate = (-0.39999999999999963, -26.60000000000001, 4.226416694238857e-17)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_04" (
@@ -223,15 +180,6 @@ def Xform "World"
             float3 xformOp:scale = (0.1, 0.1, 0.1)
             double3 xformOp:translate = (-0.4, -33.600000000000016, 1.2954789903763435e-15)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_05" (
@@ -248,15 +196,6 @@ def Xform "World"
             float3 xformOp:scale = (0.1, 0.1, 0.1)
             double3 xformOp:translate = (-0.4, -40.59040674328204, 0.3663516937006086)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_06" (
@@ -285,15 +224,6 @@ def Xform "World"
                     double3 xformOp:translate = (9.999999850988381, 2.8421709430404007e-13, 9.999999850988445)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
             }
         }
 
@@ -324,15 +254,6 @@ def Xform "World"
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
             }
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_08" (
@@ -361,15 +282,6 @@ def Xform "World"
                     double3 xformOp:translate = (29.96829093201537, 2.0698357698624292, 3.46871208806094)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
             }
         }
 
@@ -400,15 +312,6 @@ def Xform "World"
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
             }
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
         }
 
         def "Microtubules_10" (
@@ -437,27 +340,6 @@ def Xform "World"
                     double3 xformOp:translate = (29.96829093201537, 2.0698357698624292, 3.46871208806094)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
-
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
-            }
-        }
-
-        over "Microtubules"
-        {
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
-                )
             }
         }
         variantSet "neuronModel" = {
