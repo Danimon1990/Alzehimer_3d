@@ -46,11 +46,21 @@ SOURCE_SCENE = "./neuron_variant_scene.usda"
 ANIMATED_ASSET = "../assets/Anima_scene_tau_mt.usdc"
 ANIMATED_ASSET_PRIM = Sdf.Path("/root")
 
-# The Blender export is larger than one microtubule segment. Five repeated units
-# spaced by the animated asset length gives a chain close to the original bundle
-# length used in `microtubule_bundle.usda`.
-CHAIN_COUNT = 5
-CHAIN_SPACING = 15.35
+# Local bundle layout copied from `output/microtubule_bundle.usda`.
+# The original healthy bundle is arranged as six parallel microtubule chains,
+# each chain made of ten repeated segment positions. We reuse that exact local
+# hose-like packing here, but each repeated unit is now the animated combined
+# microtubule+TAU asset from Blender.
+CHAIN_OFFSETS = [
+    (0.0, 0.0, 0.0),
+    (3.0, 0.0, 0.0),
+    (0.927051, 0.0, 2.8531694),
+    (-2.427051, 0.0, 1.7633557),
+    (-2.427051, 0.0, -1.7633557),
+    (0.927051, 0.0, -2.8531694),
+]
+CHAIN_Y_STEP = 5.916
+CHAIN_LENGTH = 10
 
 
 @dataclass(frozen=True)
@@ -142,8 +152,20 @@ def build_chain_layer() -> None:
     stage = make_stage(CHAIN_LAYER)
 
     chain = UsdGeom.PointInstancer.Define(stage, "/World/AnimatedTauChain")
-    chain.CreatePositionsAttr([Gf.Vec3f(0.0, CHAIN_SPACING * index, 0.0) for index in range(CHAIN_COUNT)])
-    chain.CreateProtoIndicesAttr([0] * CHAIN_COUNT)
+
+    positions: list[Gf.Vec3f] = []
+    for offset_x, offset_y, offset_z in CHAIN_OFFSETS:
+        for index in range(CHAIN_LENGTH):
+            positions.append(
+                Gf.Vec3f(
+                    offset_x,
+                    offset_y + CHAIN_Y_STEP * index,
+                    offset_z,
+                )
+            )
+
+    chain.CreatePositionsAttr(positions)
+    chain.CreateProtoIndicesAttr([0] * len(positions))
     chain.CreatePrototypesRel().SetTargets([Sdf.Path("/World/AnimatedTauChain/Prototypes/AnimatedUnit")])
 
     UsdGeom.Scope.Define(stage, "/World/AnimatedTauChain/Prototypes")
