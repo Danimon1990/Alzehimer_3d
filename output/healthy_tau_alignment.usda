@@ -1,0 +1,299 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    over "NeuronModel"
+    {
+        over "Microtubules_01"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_02"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_03"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_04"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_05"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_06"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_07"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_08"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_09"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules_10"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+
+        over "Microtubules"
+        {
+            over "Prototypes"
+            {
+                over "Segment"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+
+                over "TauProtein"
+                {
+                    float xformOp:rotateX = -90
+                    float xformOp:rotateY = 0
+                    float xformOp:rotateZ = 0
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+                }
+            }
+        }
+    }
+}
+

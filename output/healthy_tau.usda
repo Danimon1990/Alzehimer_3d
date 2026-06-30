@@ -5,6 +5,7 @@
     subLayers = [
         @healthy_tau_camera.usda@,
         @healthy_tau_materials.usda@,
+        @healthy_tau_alignment.usda@,
         @healthy_tau_base.usda@
     ]
     upAxis = "Y"
