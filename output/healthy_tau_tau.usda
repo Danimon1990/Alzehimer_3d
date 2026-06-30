@@ -1,0 +1,93 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    over "NeuronModel"
+    {
+        over "Microtubules_01"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_02"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_03"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_04"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_05"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_06"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_07"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_08"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_09"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+
+        over "Microtubules_10"
+        {
+            over "TauBundle"
+            {
+                rel material:binding = </World/Materials/TauGlow>
+            }
+        }
+    }
+}
+
