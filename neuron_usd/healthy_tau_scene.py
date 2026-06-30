@@ -193,6 +193,9 @@ def build_camera_layer() -> None:
     This layer adds a dedicated study camera you can animate independently.
     """
     stage = make_stage(CAMERA_LAYER)
+    stage.SetStartTimeCode(1)
+    stage.SetEndTimeCode(240)
+    stage.SetTimeCodesPerSecond(24)
     UsdGeom.Scope.Define(stage, "/World/Cameras")
 
     camera = UsdGeom.Camera.Define(stage, "/World/Cameras/FlyThrough")
@@ -231,6 +234,9 @@ def build_root_stage() -> None:
       - camera layer adds/overrides camera setup
     """
     stage = make_stage(ROOT_LAYER)
+    stage.SetStartTimeCode(1)
+    stage.SetEndTimeCode(240)
+    stage.SetTimeCodesPerSecond(24)
     root = stage.GetRootLayer()
     root.subLayerPaths = [
         CAMERA_LAYER.name,
