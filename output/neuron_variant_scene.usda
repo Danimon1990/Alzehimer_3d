@@ -127,7 +127,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 180
             float xformOp:rotateY = 0
@@ -136,13 +136,25 @@ def Xform "World"
             double3 xformOp:translate = (-0.4, -7.733460325034177, 4.5002969044673766e-29)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
+            over "Prototypes"
             {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
+
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -152,7 +164,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 180
             float xformOp:rotateY = 0
@@ -163,8 +175,13 @@ def Xform "World"
 
             over "Prototypes"
             {
-                over "Segment"
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
                 {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
                     float xformOp:rotateX = -90
                     float xformOp:rotateY = 0
                     float xformOp:rotateZ = 0
@@ -172,15 +189,15 @@ def Xform "World"
                     double3 xformOp:translate = (0, -18.75350068705029, -2.296641458920211e-15)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -190,7 +207,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 179.57585
             float xformOp:rotateY = -0.063509375
@@ -199,13 +216,25 @@ def Xform "World"
             double3 xformOp:translate = (-0.39999999999999963, -26.60000000000001, 4.226416694238857e-17)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
+            over "Prototypes"
             {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
+
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -215,7 +244,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 177
             float xformOp:rotateY = 0
@@ -224,13 +253,25 @@ def Xform "World"
             double3 xformOp:translate = (-0.4, -33.600000000000016, 1.2954789903763435e-15)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
+            over "Prototypes"
             {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
+
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -240,7 +281,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 173.04268
             float xformOp:rotateY = 0.10218263
@@ -249,13 +290,25 @@ def Xform "World"
             double3 xformOp:translate = (-0.4, -40.59040674328204, 0.3663516937006086)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
+            over "Prototypes"
             {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
+
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -265,7 +318,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 169.1283
             float xformOp:rotateY = 3.803126
@@ -276,8 +329,13 @@ def Xform "World"
 
             over "Prototypes"
             {
-                over "Segment"
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
                 {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
                     float xformOp:rotateX = -90
                     float xformOp:rotateY = 0
                     float xformOp:rotateZ = 0
@@ -285,15 +343,15 @@ def Xform "World"
                     double3 xformOp:translate = (9.999999850988381, 2.8421709430404007e-13, 9.999999850988445)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -303,7 +361,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 71.96148
             float xformOp:rotateY = -0.15596047
@@ -314,8 +372,13 @@ def Xform "World"
 
             over "Prototypes"
             {
-                over "Segment"
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
                 {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
                     float xformOp:rotateX = -90
                     float xformOp:rotateY = 0
                     float xformOp:rotateZ = 0
@@ -323,15 +386,15 @@ def Xform "World"
                     double3 xformOp:translate = (29.96829093201537, 2.0698357698624292, 3.46871208806094)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -341,7 +404,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 71.96148
             float xformOp:rotateY = -0.15596047
@@ -352,8 +415,13 @@ def Xform "World"
 
             over "Prototypes"
             {
-                over "Segment"
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
                 {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
                     float xformOp:rotateX = -90
                     float xformOp:rotateY = 0
                     float xformOp:rotateZ = 0
@@ -361,15 +429,15 @@ def Xform "World"
                     double3 xformOp:translate = (29.96829093201537, 2.0698357698624292, 3.46871208806094)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -379,7 +447,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 197.13977
             float xformOp:rotateY = 43.02415
@@ -390,8 +458,13 @@ def Xform "World"
 
             over "Prototypes"
             {
-                over "Segment"
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
                 {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
                     float xformOp:rotateX = -90
                     float xformOp:rotateY = 0
                     float xformOp:rotateZ = 0
@@ -399,15 +472,15 @@ def Xform "World"
                     double3 xformOp:translate = (36.65153137704881, 2.0698357698621734, 4.579582104226738)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
@@ -417,7 +490,7 @@ def Xform "World"
         )
         {
             rel material:binding = </World/Materials/MicrotubuleGlow> (
-                bindMaterialAs = "strongerThanDescendants"
+                bindMaterialAs = "weakerThanDescendants"
             )
             float xformOp:rotateX = 135.52682
             float xformOp:rotateY = -13.722503
@@ -428,8 +501,13 @@ def Xform "World"
 
             over "Prototypes"
             {
-                over "Segment"
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
                 {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
                     float xformOp:rotateX = -90
                     float xformOp:rotateY = 0
                     float xformOp:rotateZ = 0
@@ -437,27 +515,43 @@ def Xform "World"
                     double3 xformOp:translate = (29.96829093201537, 2.0698357698624292, 3.46871208806094)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
                 }
-            }
 
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-            )
-            {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
 
         over "Microtubules"
         {
-            over "TauBundle" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
             )
+
+            over "Prototypes"
             {
-                rel material:binding = </World/Materials/TauGlow> (
-                    bindMaterialAs = "strongerThanDescendants"
+                over "TauProtein" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
                 )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
+
+                over "Segment" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </World/Materials/MicrotubuleGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
             }
         }
         variantSet "neuronModel" = {

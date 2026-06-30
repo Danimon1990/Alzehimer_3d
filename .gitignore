@@ -10,6 +10,7 @@ __pycache__/
 assets/*.blend
 assets/*.usdc
 !assets/microtubules.usdc
+!assets/TAU.usdc
 assets/textures/
 
 # Screenshots / renders
