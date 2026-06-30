@@ -1,0 +1,214 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    endTimeCode = 72
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def "NeuronModel"
+    {
+        over "Microtubules_01"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_01_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 180
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.15, 0.15, 0.15)
+            double3 xformOp:translate = (-0.4, -7.733460325034177, 4.5002969044673766e-29)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_02"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_02_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 180
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.15, 0.15, 0.15)
+            double3 xformOp:translate = (-0.4, -19.762036118033034, -6.352650832591862e-30)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_03"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_03_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 179.57585
+            float xformOp:rotateY = -0.063509375
+            float xformOp:rotateZ = -0.9031304
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.39999999999999963, -26.60000000000001, 4.226416694238857e-17)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_04"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_04_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 177
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.4, -33.600000000000016, 1.2954789903763435e-15)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_05"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_05_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 173.04268
+            float xformOp:rotateY = 0.10218263
+            float xformOp:rotateZ = 0.57034796
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.4, -40.59040674328204, 0.3663516937006086)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_06"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_06_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 169.1283
+            float xformOp:rotateY = 3.803126
+            float xformOp:rotateZ = 10.4081955
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-0.729890560267854, -47.52847753032135, 1.7313329221558182)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_07"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_07_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 71.96148
+            float xformOp:rotateY = -0.15596047
+            float xformOp:rotateZ = 54.396183
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-1.5763882459739773, 0.5846368954187088, -7.071029151820076)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_08"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_08_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 71.96148
+            float xformOp:rotateY = -0.15596047
+            float xformOp:rotateZ = 54.396183
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-3.806913919112263, 0.8510111967519306, 2.6872357243723286)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_09"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_09_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 197.13977
+            float xformOp:rotateY = 43.02415
+            float xformOp:rotateZ = 115.97241
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (-7.883053705122286, 1.1627821373987655, 4.589669678386052)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules_10"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_10_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 135.52682
+            float xformOp:rotateY = -13.722503
+            float xformOp:rotateZ = 86.36963
+            float3 xformOp:scale = (0.1, 0.1, 0.1)
+            double3 xformOp:translate = (0.22511187683954395, 1.1220048432090912, 1.809692525407168)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        over "Microtubules"
+        {
+            token visibility = "invisible"
+        }
+
+        def Xform "Microtubules_Animated" (
+            instanceable = true
+            prepend references = @./animated_tau_breakdown_chain.usda@</World/AnimatedTauChain>
+        )
+        {
+            float xformOp:rotateX = 180
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (0.15, 0.15, 0.15)
+            double3 xformOp:translate = (-0.4, 1.4, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+        }
+    }
+}
+

@@ -1,0 +1,53 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    endTimeCode = 72
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def PointInstancer "AnimatedTauChain"
+    {
+        point3f[] positions = [(0, 0, 0), (0, 15.35, 0), (0, 30.7, 0), (0, 46.05, 0), (0, 61.4, 0)]
+        int[] protoIndices = [0, 0, 0, 0, 0]
+        rel prototypes = </World/AnimatedTauChain/Prototypes/AnimatedUnit>
+
+        def Scope "Prototypes"
+        {
+            def Xform "AnimatedUnit" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/Anima_scene_tau_mt.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/MicrotubuleGlow> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                float xformOp:rotateX = -90
+                float xformOp:rotateY = 0
+                float xformOp:rotateZ = 0
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+                over "env_light"
+                {
+                    token visibility = "invisible"
+                }
+
+                over "NurbsPath" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </World/Materials/TauGlow> (
+                        bindMaterialAs = "strongerThanDescendants"
+                    )
+                }
+            }
+        }
+    }
+}
+
