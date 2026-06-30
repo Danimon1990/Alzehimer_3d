@@ -3,9 +3,9 @@
 Adds TAU protein instances to the scene.
 
 What this does:
-  1. microtubule_bundle.usda — removes any old TAU prims, then adds TauBundle
-     as a CHILD of MicrotubuleBundle so it travels with every reference in
-     the main scene automatically.
+  1. microtubule_bundle.usda — adds TauBundle as a sibling of
+     MicrotubuleBundle under a shared assembly Xform, which renders more
+     reliably than nesting it under a PointInstancer.
   2. neuron_variant_scene.usda — adds TauGlow material and overrides the
      material binding on each TauBundle so it stays yellow (not overridden
      to green by the parent MicrotubuleGlow strongerThanDescendants binding).
@@ -18,6 +18,7 @@ from pxr import Usd, UsdGeom, UsdShade, Gf, Sdf
 BUNDLE_FILE = "/home/daniel/Documents/healthy_vs_alz/output/microtubule_bundle.usda"
 SCENE_FILE  = "/home/daniel/Documents/healthy_vs_alz/output/neuron_variant_scene.usda"
 TAU_ASSET   = "../assets/TAU.usdc"
+TAU_PRIM    = "/root/NurbsPath"
 
 # Adjust after first look in Omniverse — at 1.0 TAU is ~1/6th one segment height
 TAU_SCALE = 1.0
@@ -40,7 +41,7 @@ y_positions = [CHAIN_Y_MAX * i / (N_TAU_PER_CHAIN + 1)
 bundle = Usd.Stage.Open(BUNDLE_FILE)
 
 # Clean up any prims written by the previous run
-for old in ["/World/TauBundle", "/World/Materials"]:
+for old in ["/World/TauBundle", "/World/MicrotubuleAssembly", "/World/Materials"]:
     if bundle.GetPrimAtPath(old):
         bundle.RemovePrim(Sdf.Path(old))
 
@@ -53,8 +54,10 @@ for cx, cz in CHAINS:
         orientations.append(Gf.Quath(1, 0, 0, 0))
 proto_indices = [0] * len(positions)
 
-# TauBundle nested INSIDE MicrotubuleBundle — travels with the reference
-TAU_PATH = "/World/MicrotubuleBundle/TauBundle"
+# TauBundle as a sibling of MicrotubuleBundle under a shared assembly
+ASSEMBLY_PATH = "/World/MicrotubuleAssembly"
+TAU_PATH = ASSEMBLY_PATH + "/TauBundle"
+UsdGeom.Xform.Define(bundle, ASSEMBLY_PATH)
 instancer = UsdGeom.PointInstancer.Define(bundle, TAU_PATH)
 instancer.CreatePositionsAttr().Set(positions)
 instancer.CreateOrientationsAttr().Set(orientations)
@@ -65,7 +68,7 @@ instancer.CreatePrototypesRel().SetTargets(
 
 UsdGeom.Scope.Define(bundle, TAU_PATH + "/Prototypes")
 proto = bundle.DefinePrim(TAU_PATH + "/Prototypes/TauProtein", "Xform")
-proto.GetReferences().AddReference(TAU_ASSET)
+proto.GetReferences().AddReference(TAU_ASSET, Sdf.Path(TAU_PRIM))
 
 xf = UsdGeom.Xformable(proto)
 xf.AddRotateXOp().Set(-90.0)
@@ -73,7 +76,7 @@ if TAU_SCALE != 1.0:
     xf.AddScaleOp().Set(Gf.Vec3f(TAU_SCALE, TAU_SCALE, TAU_SCALE))
 
 bundle.Save()
-print(f"Bundle saved — {len(positions)} TAU instances inside /World/MicrotubuleBundle/TauBundle")
+print(f"Bundle saved — {len(positions)} TAU instances inside {TAU_PATH}")
 
 # ── 2. neuron_variant_scene.usda ──────────────────────────────────────────────
 
