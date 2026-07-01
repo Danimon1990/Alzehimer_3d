@@ -13,8 +13,8 @@ def Xform "World"
     def Xform "AnimatedTauChain"
     {
         def Xform "Unit_00" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -44,8 +44,8 @@ def Xform "World"
         }
 
         def Xform "Unit_01" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -56,7 +56,6 @@ def Xform "World"
             float xformOp:rotateY = 0
             float xformOp:rotateZ = 0
             float3 xformOp:scale = (1, 1, 1)
-            double3 xformOp:translate = (0, 5.916, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
             over "env_light"
@@ -75,8 +74,8 @@ def Xform "World"
         }
 
         def Xform "Unit_02" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -87,7 +86,6 @@ def Xform "World"
             float xformOp:rotateY = 0
             float xformOp:rotateZ = 0
             float3 xformOp:scale = (1, 1, 1)
-            double3 xformOp:translate = (0, 11.832, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
             over "env_light"
@@ -106,8 +104,8 @@ def Xform "World"
         }
 
         def Xform "Unit_03" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -137,8 +135,8 @@ def Xform "World"
         }
 
         def Xform "Unit_04" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -168,8 +166,8 @@ def Xform "World"
         }
 
         def Xform "Unit_05" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -199,8 +197,8 @@ def Xform "World"
         }
 
         def Xform "Unit_06" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -230,8 +228,8 @@ def Xform "World"
         }
 
         def Xform "Unit_07" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -261,8 +259,8 @@ def Xform "World"
         }
 
         def Xform "Unit_08" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -292,8 +290,8 @@ def Xform "World"
         }
 
         def Xform "Unit_09" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -323,8 +321,8 @@ def Xform "World"
         }
 
         def Xform "Unit_10" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -354,8 +352,8 @@ def Xform "World"
         }
 
         def Xform "Unit_11" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -385,8 +383,8 @@ def Xform "World"
         }
 
         def Xform "Unit_12" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -416,8 +414,8 @@ def Xform "World"
         }
 
         def Xform "Unit_13" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -447,8 +445,8 @@ def Xform "World"
         }
 
         def Xform "Unit_14" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -478,8 +476,8 @@ def Xform "World"
         }
 
         def Xform "Unit_15" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -509,8 +507,8 @@ def Xform "World"
         }
 
         def Xform "Unit_16" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -540,8 +538,8 @@ def Xform "World"
         }
 
         def Xform "Unit_17" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -571,8 +569,8 @@ def Xform "World"
         }
 
         def Xform "Unit_18" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -602,8 +600,8 @@ def Xform "World"
         }
 
         def Xform "Unit_19" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -633,8 +631,8 @@ def Xform "World"
         }
 
         def Xform "Unit_20" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -664,8 +662,8 @@ def Xform "World"
         }
 
         def Xform "Unit_21" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -695,8 +693,8 @@ def Xform "World"
         }
 
         def Xform "Unit_22" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -726,8 +724,8 @@ def Xform "World"
         }
 
         def Xform "Unit_23" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -757,8 +755,8 @@ def Xform "World"
         }
 
         def Xform "Unit_24" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -788,8 +786,8 @@ def Xform "World"
         }
 
         def Xform "Unit_25" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -819,8 +817,8 @@ def Xform "World"
         }
 
         def Xform "Unit_26" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -850,8 +848,8 @@ def Xform "World"
         }
 
         def Xform "Unit_27" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -881,8 +879,8 @@ def Xform "World"
         }
 
         def Xform "Unit_28" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -912,8 +910,8 @@ def Xform "World"
         }
 
         def Xform "Unit_29" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -943,8 +941,8 @@ def Xform "World"
         }
 
         def Xform "Unit_30" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -974,8 +972,8 @@ def Xform "World"
         }
 
         def Xform "Unit_31" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1005,8 +1003,8 @@ def Xform "World"
         }
 
         def Xform "Unit_32" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1036,8 +1034,8 @@ def Xform "World"
         }
 
         def Xform "Unit_33" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1067,8 +1065,8 @@ def Xform "World"
         }
 
         def Xform "Unit_34" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1098,8 +1096,8 @@ def Xform "World"
         }
 
         def Xform "Unit_35" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1129,8 +1127,8 @@ def Xform "World"
         }
 
         def Xform "Unit_36" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1160,8 +1158,8 @@ def Xform "World"
         }
 
         def Xform "Unit_37" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1191,8 +1189,8 @@ def Xform "World"
         }
 
         def Xform "Unit_38" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1222,8 +1220,8 @@ def Xform "World"
         }
 
         def Xform "Unit_39" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1253,8 +1251,8 @@ def Xform "World"
         }
 
         def Xform "Unit_40" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1284,8 +1282,8 @@ def Xform "World"
         }
 
         def Xform "Unit_41" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1315,8 +1313,8 @@ def Xform "World"
         }
 
         def Xform "Unit_42" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1346,8 +1344,8 @@ def Xform "World"
         }
 
         def Xform "Unit_43" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1377,8 +1375,8 @@ def Xform "World"
         }
 
         def Xform "Unit_44" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1408,8 +1406,8 @@ def Xform "World"
         }
 
         def Xform "Unit_45" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1439,8 +1437,8 @@ def Xform "World"
         }
 
         def Xform "Unit_46" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1470,8 +1468,8 @@ def Xform "World"
         }
 
         def Xform "Unit_47" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1501,8 +1499,8 @@ def Xform "World"
         }
 
         def Xform "Unit_48" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1532,8 +1530,8 @@ def Xform "World"
         }
 
         def Xform "Unit_49" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1563,8 +1561,8 @@ def Xform "World"
         }
 
         def Xform "Unit_50" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1594,8 +1592,8 @@ def Xform "World"
         }
 
         def Xform "Unit_51" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1625,8 +1623,8 @@ def Xform "World"
         }
 
         def Xform "Unit_52" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1656,8 +1654,8 @@ def Xform "World"
         }
 
         def Xform "Unit_53" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1687,8 +1685,8 @@ def Xform "World"
         }
 
         def Xform "Unit_54" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1718,8 +1716,8 @@ def Xform "World"
         }
 
         def Xform "Unit_55" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1749,8 +1747,8 @@ def Xform "World"
         }
 
         def Xform "Unit_56" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1780,8 +1778,8 @@ def Xform "World"
         }
 
         def Xform "Unit_57" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1811,8 +1809,8 @@ def Xform "World"
         }
 
         def Xform "Unit_58" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1842,8 +1840,8 @@ def Xform "World"
         }
 
         def Xform "Unit_59" (
-            instanceable = true
             prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = false
             prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
         )
         {
@@ -1873,3 +1871,91 @@ def Xform "World"
         }
     }
 }
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:ecoMode:enabled
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (1280, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars"
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+        }
+    }
+}
+
+over "OmniverseKit_Persp" (
+    prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+)
+{
+    float exposure:fStop = 5
+    float exposure:responsivity = 1.1026709
+    float exposure:time = 0.02
+}
+
+def PhysicsScene "PhysicsScene" (
+    prepend apiSchemas = ["PhysxSceneAPI", "NewtonSceneAPI"]
+)
+{
+}
+
