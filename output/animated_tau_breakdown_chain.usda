@@ -10,44 +10,1866 @@
 
 def Xform "World"
 {
-    def PointInstancer "AnimatedTauChain"
+    def Xform "AnimatedTauChain"
     {
-        point3f[] positions = [(0, 0, 0), (0, 5.916, 0), (0, 11.832, 0), (0, 17.748, 0), (0, 23.664, 0), (0, 29.58, 0), (0, 35.496, 0), (0, 41.412, 0), (0, 47.328, 0), (0, 53.244, 0), (3, 0, 0), (3, 5.916, 0), (3, 11.832, 0), (3, 17.748, 0), (3, 23.664, 0), (3, 29.58, 0), (3, 35.496, 0), (3, 41.412, 0), (3, 47.328, 0), (3, 53.244, 0), (0.927051, 0, 2.8531694), (0.927051, 5.916, 2.8531694), (0.927051, 11.832, 2.8531694), (0.927051, 17.748, 2.8531694), (0.927051, 23.664, 2.8531694), (0.927051, 29.58, 2.8531694), (0.927051, 35.496, 2.8531694), (0.927051, 41.412, 2.8531694), (0.927051, 47.328, 2.8531694), (0.927051, 53.244, 2.8531694), (-2.427051, 0, 1.7633557), (-2.427051, 5.916, 1.7633557), (-2.427051, 11.832, 1.7633557), (-2.427051, 17.748, 1.7633557), (-2.427051, 23.664, 1.7633557), (-2.427051, 29.58, 1.7633557), (-2.427051, 35.496, 1.7633557), (-2.427051, 41.412, 1.7633557), (-2.427051, 47.328, 1.7633557), (-2.427051, 53.244, 1.7633557), (-2.427051, 0, -1.7633557), (-2.427051, 5.916, -1.7633557), (-2.427051, 11.832, -1.7633557), (-2.427051, 17.748, -1.7633557), (-2.427051, 23.664, -1.7633557), (-2.427051, 29.58, -1.7633557), (-2.427051, 35.496, -1.7633557), (-2.427051, 41.412, -1.7633557), (-2.427051, 47.328, -1.7633557), (-2.427051, 53.244, -1.7633557), (0.927051, 0, -2.8531694), (0.927051, 5.916, -2.8531694), (0.927051, 11.832, -2.8531694), (0.927051, 17.748, -2.8531694), (0.927051, 23.664, -2.8531694), (0.927051, 29.58, -2.8531694), (0.927051, 35.496, -2.8531694), (0.927051, 41.412, -2.8531694), (0.927051, 47.328, -2.8531694), (0.927051, 53.244, -2.8531694)]
-        int[] protoIndices = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        rel prototypes = </World/AnimatedTauChain/Prototypes/AnimatedUnit>
-
-        def Scope "Prototypes"
+        def Xform "Unit_00" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
         {
-            def Xform "AnimatedUnit" (
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
                 prepend apiSchemas = ["MaterialBindingAPI"]
-                prepend references = @../assets/Anima_scene_tau_mt.usdc@</root>
             )
             {
-                rel material:binding = </World/Materials/MicrotubuleGlow> (
-                    bindMaterialAs = "weakerThanDescendants"
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
                 )
-                float xformOp:rotateX = -90
-                float xformOp:rotateY = 0
-                float xformOp:rotateZ = 0
-                float3 xformOp:scale = (1, 1, 1)
-                double3 xformOp:translate = (0, 0, 0)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+            }
+        }
 
-                over "env_light"
-                {
-                    token visibility = "invisible"
-                }
+        def Xform "Unit_01" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 5.916, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
 
-                over "NurbsPath" (
-                    prepend apiSchemas = ["MaterialBindingAPI"]
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
                 )
-                {
-                    rel material:binding = </World/Materials/TauGlow> (
-                        bindMaterialAs = "strongerThanDescendants"
-                    )
-                }
+            }
+        }
+
+        def Xform "Unit_02" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 11.832, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_03" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 17.748, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_04" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 23.664, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_05" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 29.58, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_06" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 35.496, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_07" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 41.412, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_08" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 47.328, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_09" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 53.244, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_10" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_11" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 5.916, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_12" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 11.832, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_13" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 17.748, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_14" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 23.664, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_15" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 29.58, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_16" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 35.496, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_17" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 41.412, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_18" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 47.328, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_19" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (3, 53.244, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_20" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 0, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_21" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 5.916, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_22" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 11.832, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_23" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 17.748, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_24" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 23.664, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_25" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 29.58, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_26" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 35.496, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_27" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 41.412, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_28" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 47.328, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_29" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 53.244, 2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_30" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 0, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_31" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 5.916, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_32" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 11.832, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_33" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 17.748, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_34" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 23.664, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_35" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 29.58, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_36" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 35.496, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_37" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 41.412, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_38" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 47.328, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_39" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 53.244, 1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_40" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 0, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_41" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 5.916, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_42" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 11.832, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_43" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 17.748, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_44" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 23.664, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_45" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 29.58, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_46" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 35.496, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_47" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 41.412, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_48" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 47.328, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_49" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-2.427051, 53.244, -1.763356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_50" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 0, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_51" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 5.916, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_52" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 11.832, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_53" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 17.748, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_54" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 23.664, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_55" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 29.58, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_56" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 35.496, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_57" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 41.412, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_58" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 47.328, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
+            }
+        }
+
+        def Xform "Unit_59" (
+            instanceable = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            prepend references = @../assets/Ani_scene_tau_mt.usdc@</root>
+        )
+        {
+            rel material:binding = </World/Materials/MicrotubuleGlow> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float xformOp:rotateX = -90
+            float xformOp:rotateY = 0
+            float xformOp:rotateZ = 0
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0.927051, 53.244, -2.853169)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:rotateY", "xformOp:rotateX", "xformOp:scale"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+
+            over "NurbsPath" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/Materials/TauGlow> (
+                    bindMaterialAs = "strongerThanDescendants"
+                )
             }
         }
     }
 }
-
