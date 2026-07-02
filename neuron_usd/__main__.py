@@ -42,6 +42,11 @@ def main(argv: list[str] | None = None) -> int:
     sd.add_argument("--out-dir", default="output")
     sd.add_argument("--force", action="store_true")
 
+    si = sub.add_parser("healthy-tau-intro")
+    si.add_argument("--layers", type=int, default=1)
+    si.add_argument("--rows", type=int, default=6)
+    si.add_argument("--columns", type=int, default=6)
+
     args = p.parse_args(argv)
 
     if args.cmd == "neuron":
@@ -77,6 +82,12 @@ def main(argv: list[str] | None = None) -> int:
         return conditions.main(
             [args.which, "--network-layer", args.network_layer, "--out-dir", args.out_dir]
             + (["--force"] if args.force else [])
+        )
+    if args.cmd == "healthy-tau-intro":
+        from neuron_usd import healthy_tau_intro_scene
+
+        return healthy_tau_intro_scene.main(
+            ["--layers", str(args.layers), "--rows", str(args.rows), "--columns", str(args.columns)]
         )
     raise AssertionError(args.cmd)
 
