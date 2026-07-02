@@ -1,0 +1,85 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    endTimeCode = 72
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Xform "TauBreakdownBundle"
+    {
+        def Xform "Segment_00" (
+            prepend references = @../assets/double_segment.usdc@
+        )
+        {
+            float xformOp:rotateX = -90
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+        }
+
+        def Xform "Segment_01" (
+            prepend references = @../assets/double_segment.usdc@
+        )
+        {
+            float xformOp:rotateX = -90
+            double3 xformOp:translate = (0, 5.916, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+        }
+
+        def Xform "Segment_02" (
+            prepend references = @../assets/double_segment.usdc@
+        )
+        {
+            float xformOp:rotateX = -90
+            double3 xformOp:translate = (0, 11.832, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+        }
+
+        def Xform "Segment_03" (
+            prepend references = @../assets/double_segment.usdc@
+        )
+        {
+            float xformOp:rotateX = -90
+            double3 xformOp:translate = (0, 17.748, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+        }
+
+        def Xform "Segment_04" (
+            prepend references = @../assets/double_segment.usdc@
+        )
+        {
+            float xformOp:rotateX = -90
+            double3 xformOp:translate = (0, 23.664, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX"]
+
+            over "env_light"
+            {
+                token visibility = "invisible"
+            }
+        }
+    }
+}

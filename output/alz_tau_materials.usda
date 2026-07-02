@@ -1,0 +1,59 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Materials"
+    {
+        def Material "NeuronMembrane"
+        {
+            token outputs:surface.connect = </World/Materials/NeuronMembrane/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.56, 0.38, 0.78)
+                float inputs:metallic = 0
+                float inputs:opacity = 0.18
+                float inputs:roughness = 0.18
+                token outputs:surface
+            }
+        }
+
+        def Material "MicrotubuleGlow"
+        {
+            token outputs:surface.connect = </World/Materials/MicrotubuleGlow/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.16, 0.88, 0.48)
+                color3f inputs:emissiveColor = (0.04, 0.24, 0.1)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.28
+                token outputs:surface
+            }
+        }
+
+        def Material "TauGlow"
+        {
+            token outputs:surface.connect = </World/Materials/TauGlow/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.9, 0.75, 0.05)
+                color3f inputs:emissiveColor = (0.25, 0.18, 0.01)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.28
+                token outputs:surface
+            }
+        }
+    }
+}
