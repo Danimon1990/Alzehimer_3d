@@ -1,9 +1,102 @@
 #usda 1.0
 (
     customLayerData = {
+        dictionary MovieCaptureSettings = {
+            double animation_fps = 24
+            int bad_frame_size_threshold = 0
+            int batch_count = 1
+            string camera_name = "/World/diagonal"
+            bool capture_application = 0
+            int capture_every_nth_frames = 20
+            bool capture_every_nth_frames_checked = 0
+            int capture_frame_end = 120
+            int capture_frame_start = 1
+            string capture_name = "good neuron"
+            string capture_range = "Custom Range - Frames"
+            double capture_time_end = 10
+            double capture_time_start = 0
+            int early_quit_time_limit = 0
+            string exr_compression_method = "zips"
+            double fps = 24
+            bool generate_shader_cache = 0
+            bool hdr_for_exr_checked = 1
+            bool hdr_for_exr_visible = 0
+            int iray_pathtrace_spp = 1
+            int iray_subframes_per_frame = 32
+            int max_bad_frame_threshold = 3
+            string movie_type = "Sequence"
+            int mp4_encoding_bitrate = 16777216
+            int mp4_encoding_iframe_interval = 60
+            string mp4_encoding_preset = "PRESET_P3"
+            string mp4_encoding_profile = "H264_PROFILE_HIGH"
+            string mp4_encoding_rc_mode = "RC_VBR"
+            int mp4_encoding_rc_target_quality = 0
+            string mp4_encoding_tuning_info = "TUNING_HIGH_QUALITY"
+            bool mp4_encoding_video_full_range_flag = 0
+            string output_format = ".png"
+            string output_path = "/home/daniel/Documents/Alz_videos"
+            bool overwrite_existing_frame_checked = 0
+            bool pathtrace_mb_checked = 1
+            double pathtrace_mb_frame_shutter_close = 0.5
+            double pathtrace_mb_frame_shutter_open = 0
+            int pathtrace_mb_subframes = 64
+            int pathtrace_spp_per_iteration_mgpu = 1
+            int pathtrace_spp_per_subframe = 1
+            string queue_instance = "localhost Queue"
+            int realtime_settle_latency = 0
+            int realtime_wait_for_render_resolve = 0
+            string render_preset = "RealTimePathTracing"
+            bool render_style = 1
+            bool renumber_negtive_frames_checked = 0
+            int resolution_aspect_ratio_selected = 0
+            string resolution_aspect_ratios = '["16:9", "4:3"]'
+            int resolution_height = 1080
+            string resolution_type = "Custom"
+            bool resolution_w_h_linked = 1
+            int resolution_width = 1920
+            int run_n_frames_before_start = 20
+            bool run_n_frames_before_start_checked = 0
+            bool save_alpha_checked = 0
+            bool skip_upload_to_s3 = 0
+            int start_delay_seconds = 10
+            double sunstudy_end = 18
+            int sunstudy_movie_minutes = 1
+            int sunstudy_movie_seconds = 1
+            double sunstudy_start = 6
+            string task_comment = ""
+            int task_priority = 65535
+            string task_type = "create-render"
+            double texture_streaming_memory_budget = 0.6000000238418579
+            bool upload_to_s3 = 0
+        }
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 500)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (572.0482962361581, 1206.9563310346343, 274.2080800635989)
+                double3 target = (-0.000028401318331816583, 0.0000027152673283126205, -0.00004618866705641267)
+            }
+            dictionary Right = {
+                double3 position = (-500, 0, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 500, 0)
+                double radius = 5
+            }
+            string boundCamera = "/World/diagonal"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./healthy_tau_intro_matrix.usda"
+        }
+        dictionary renderSettings = {
+            int "rtx:externalFrameCounter" = 120
+        }
     }
     defaultPrim = "World"
-    endTimeCode = 1
+    endTimeCode = 120
     metersPerUnit = 0.01
     startTimeCode = 1
     timeCodesPerSecond = 24
@@ -500,5 +593,1657 @@ def Xform "World"
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
         }
     }
+
+    def Xform "NeuronGrid_01"
+    {
+        quatf xformOp:orient = (6.123234e-17, -1, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 3.0000000447034836, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Xform "Neuron_00_00_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+    }
+
+    def Xform "NeuronGrid_02"
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (135.85162156073488, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Xform "Neuron_00_00_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+    }
+
+    def Xform "NeuronGrid_03"
+    {
+        quatf xformOp:orient = (6.123234e-17, -1, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (135.85162156073488, 3.0000000447034836, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Xform "Neuron_00_00_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_00_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_01_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -48.377329262495024)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_02_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, -16.12577642083167)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_03_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 16.125776420831684)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_04_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 48.37732926249504)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_00" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-60, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-36, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_02" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (-12, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_03" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (12, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_04" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (36, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+
+        def Xform "Neuron_00_05_05" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            instanceable = true
+            prepend references = @../assets/neuron_model.usda@
+        )
+        {
+            rel material:binding = </World/Materials/NeuronMembrane>
+            float xformOp:rotateX = -90
+            float3 xformOp:scale = (1.15, 1.15, 1.15)
+            double3 xformOp:translate = (60, 0, 80.62888210415838)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateX", "xformOp:scale"]
+        }
+    }
+
+    def Camera "Camera" (
+        prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    )
+    {
+        float2 clippingRange = (0.01, 10000000)
+        float exposure:fStop = 5
+        float exposure:responsivity = 1.1026709
+        float exposure:time = 0.02
+        float focalLength = 18.147562
+        float focusDistance = 400
+        custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -4059.2780559677967)
+        quatd xformOp:orient = (0.7658076672079784, 0.051440919964657404, 0.6404444736609702, -0.026894697540344778)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (2528.5088617863244, -264.70675822749905, 474.3347581990323)
+        double3 xformOp:translate.timeSamples = {
+            1: (248.00000369548798, -0.7000000104308128, 67.80000101029873),
+            70: (-39.59663924549811, -0.7000000104308128, 67.80000101029873),
+            120: (-248.00000369548798, -0.7000000104308128, 67.80000101029873),
+        }
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Camera "diagonal" (
+        prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    )
+    {
+        float2 clippingRange = (0.01, 10000000)
+        float exposure:fStop = 5
+        float exposure:responsivity = 1.1026709
+        float exposure:time = 0.02
+        float focalLength = 18.147562
+        float focusDistance = 400
+        quatd xformOp:orient = (0.9058742720086908, -0.009431976606372286, 0.4152711665924041, 0.08278103241084372)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate.timeSamples = {
+            1: (248.00000369548798, -0.7000000104308128, 67.80000101029873),
+            120: (-12.00000369548798, -0.7000000104308128, -40.80000101029873),
+        }
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </World/diagonal>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                bool omni:rtx:post:compositing:outputAlpha
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                uint omni:rtx:pt:samplesPerPixel
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:ecoMode:enabled
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (1280, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars"
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+        }
+    }
+}
+
+over "OmniverseKit_Persp" (
+    prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (0.01, 10000000)
+    float exposure:fStop = 5
+    float exposure:responsivity = 1.1026709
+    float exposure:time = 0.02
+    float focalLength = 18.147562
+    float focusDistance = 400
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -1363.514928665429)
+    float3 xformOp:rotateXYZ = (-62.273697, 64.389534, -6.622316e-14)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (572.0482962361581, 1206.9563310346343, 274.2080800635989)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+def PhysicsScene "PhysicsScene" (
+    prepend apiSchemas = ["PhysxSceneAPI", "NewtonSceneAPI"]
+)
+{
+}
+
+over "OmniverseKit_Front" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -500)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (-0, 0, -0)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 500)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Right" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -500)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (0, -90, -0)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (-500, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "OmniverseKit_Top" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -500)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (90, -4.961563e-15, 180)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 500, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
 }
 
