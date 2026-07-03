@@ -1,0 +1,313 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    startTimeCode = 0
+    endTimeCode = 249
+    timeCodesPerSecond = 24
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Plaques"
+    {
+        def Scope "DeadNeuronPlaques"
+        {
+            def Xform "Plaque_01" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-28, -8, 5)
+                float3 xformOp:rotateXYZ = (-90, 47, 29)
+                float3 xformOp:scale = (0.42, 0.42, 0.42)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_02" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-23, 8, -7)
+                float3 xformOp:rotateXYZ = (-90, 94, 58)
+                float3 xformOp:scale = (0.3, 0.3, 0.3)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_03" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-14, -12, -5)
+                float3 xformOp:rotateXYZ = (-90, 141, 87)
+                float3 xformOp:scale = (0.36, 0.36, 0.36)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_04" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-8, 4, 7)
+                float3 xformOp:rotateXYZ = (-90, 188, 116)
+                float3 xformOp:scale = (0.28, 0.28, 0.28)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_05" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-20, 14, 4)
+                float3 xformOp:rotateXYZ = (-90, 235, 145)
+                float3 xformOp:scale = (0.24, 0.24, 0.24)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+        def Scope "ResistingNeuronPlaques"
+        {
+            def Xform "Plaque_01" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (7, -7, 5)
+                float3 xformOp:rotateXYZ = (-90, 47, 29)
+                float3 xformOp:scale = (0.32, 0.32, 0.32)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_02" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (12, 10, -6)
+                float3 xformOp:rotateXYZ = (-90, 94, 58)
+                float3 xformOp:scale = (0.38, 0.38, 0.38)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_03" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (21, -12, -5)
+                float3 xformOp:rotateXYZ = (-90, 141, 87)
+                float3 xformOp:scale = (0.28, 0.28, 0.28)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_04" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (27, 7, 7)
+                float3 xformOp:rotateXYZ = (-90, 188, 116)
+                float3 xformOp:scale = (0.4, 0.4, 0.4)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_05" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (32, -3, -6)
+                float3 xformOp:rotateXYZ = (-90, 235, 145)
+                float3 xformOp:scale = (0.3, 0.3, 0.3)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_06" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (18, 15, 4)
+                float3 xformOp:rotateXYZ = (-90, 282, 174)
+                float3 xformOp:scale = (0.26, 0.26, 0.26)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_07" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (35, 11, 2)
+                float3 xformOp:rotateXYZ = (-90, 329, 203)
+                float3 xformOp:scale = (0.22, 0.22, 0.22)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+        def Scope "EnvironmentPlaques"
+        {
+            def Xform "Plaque_01" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-42, -18, -12)
+                float3 xformOp:rotateXYZ = (-90, 31, 17)
+                float3 xformOp:scale = (0.26, 0.26, 0.26)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_02" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-36, 17, 13)
+                float3 xformOp:rotateXYZ = (-90, 78, 46)
+                float3 xformOp:scale = (0.34, 0.34, 0.34)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_03" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-29, 2, -18)
+                float3 xformOp:rotateXYZ = (-90, 125, 75)
+                float3 xformOp:scale = (0.22, 0.22, 0.22)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_04" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-11, 20, -11)
+                float3 xformOp:rotateXYZ = (-90, 172, 104)
+                float3 xformOp:scale = (0.3, 0.3, 0.3)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_05" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (-5, -18, 14)
+                float3 xformOp:rotateXYZ = (-90, 219, 133)
+                float3 xformOp:scale = (0.38, 0.38, 0.38)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_06" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (0, 12, -16)
+                float3 xformOp:rotateXYZ = (-90, 266, 162)
+                float3 xformOp:scale = (0.24, 0.24, 0.24)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_07" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (3, -4, 18)
+                float3 xformOp:rotateXYZ = (-90, 313, 191)
+                float3 xformOp:scale = (0.32, 0.32, 0.32)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_08" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (10, 21, 12)
+                float3 xformOp:rotateXYZ = (-90, 360, 220)
+                float3 xformOp:scale = (0.28, 0.28, 0.28)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_09" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (25, -20, 13)
+                float3 xformOp:rotateXYZ = (-90, 47, 249)
+                float3 xformOp:scale = (0.36, 0.36, 0.36)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_10" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (31, 18, -13)
+                float3 xformOp:rotateXYZ = (-90, 94, 278)
+                float3 xformOp:scale = (0.26, 0.26, 0.26)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_11" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (40, -12, -10)
+                float3 xformOp:rotateXYZ = (-90, 141, 307)
+                float3 xformOp:scale = (0.33, 0.33, 0.33)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+            def Xform "Plaque_12" (
+                instanceable = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                prepend references = @../assets/plaques.usdc@</root>
+            )
+            {
+                rel material:binding = </World/Materials/Plaque> (bindMaterialAs = "strongerThanDescendants")
+                double3 xformOp:translate = (44, 9, 14)
+                float3 xformOp:rotateXYZ = (-90, 188, 336)
+                float3 xformOp:scale = (0.23, 0.23, 0.23)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+    }
+}

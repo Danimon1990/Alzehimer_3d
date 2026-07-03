@@ -1,0 +1,39 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    startTimeCode = 0
+    endTimeCode = 249
+    timeCodesPerSecond = 24
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Pathology"
+    {
+        def Xform "BrokenAxonPieces"
+        {
+            custom string userProperties:assetHint = "future broken-neuron Blender asset"
+            custom string userProperties:purpose = "Rigid debris from Neuron_01 axon"
+            custom token userProperties:status = "placeholder"
+        }
+        def Xform "Microtubules"
+        {
+            custom asset userProperties:assetHint = @../assets/microtubules.usdc@
+            custom string userProperties:purpose = "Internal microtubule accumulation in Neuron_02"
+            custom token userProperties:status = "placeholder"
+        }
+        def Xform "TauTangles"
+        {
+            custom asset userProperties:assetHint = @../assets/TAU.usdc@
+            custom string userProperties:purpose = "Intracellular tau accumulation in Neuron_02"
+            custom token userProperties:status = "placeholder"
+        }
+        def Xform "BlockedCargo"
+        {
+            custom string userProperties:purpose = "Nutrients and organelles stalled in Neuron_02 axon"
+            custom token userProperties:status = "placeholder"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    startTimeCode = 0
+    endTimeCode = 249
+    timeCodesPerSecond = 24
+    metersPerUnit = 0.01
+    upAxis = "Y"
+    subLayers = [
+        @dementia_animation.usda@,
+        @dementia_cameras.usda@,
+        @dementia_pathology.usda@,
+        @dementia_plaques.usda@,
+        @dementia_neurons.usda@,
+        @dementia_materials.usda@,
+        @dementia_lighting.usda@
+    ]
+)
+
+def Xform "World"
+{
+}

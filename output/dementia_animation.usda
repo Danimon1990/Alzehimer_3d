@@ -1,0 +1,44 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    startTimeCode = 0
+    endTimeCode = 249
+    timeCodesPerSecond = 24
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Animation"
+    {
+        custom string userProperties:shotDescription = "250-frame progression from dead neuron to resisting neuron"
+        def Scope "Markers"
+        {
+            def Xform "Establish"
+            {
+                custom int userProperties:frame = 0
+            }
+            def Xform "DeadNeuronReveal"
+            {
+                custom int userProperties:frame = 50
+            }
+            def Xform "BrokenAxonReveal"
+            {
+                custom int userProperties:frame = 110
+            }
+            def Xform "ResistingNeuronReveal"
+            {
+                custom int userProperties:frame = 180
+            }
+            def Xform "PathologyCloseup"
+            {
+                custom int userProperties:frame = 225
+            }
+            def Xform "FinalHold"
+            {
+                custom int userProperties:frame = 249
+            }
+        }
+    }
+}

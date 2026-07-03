@@ -1,0 +1,108 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    startTimeCode = 0
+    endTimeCode = 249
+    timeCodesPerSecond = 24
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Materials"
+    {
+        def Material "DeadNeuron"
+        {
+            token outputs:surface.connect = </World/Materials/DeadNeuron/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.39, 0.28, 0.19)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.82
+                token outputs:surface
+            }
+        }
+        def Material "ResistingNeuron"
+        {
+            token outputs:surface.connect = </World/Materials/ResistingNeuron/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.69, 0.61, 0.28)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.58
+                token outputs:surface
+            }
+        }
+        def Material "Plaque"
+        {
+            token outputs:surface.connect = </World/Materials/Plaque/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.43, 0.25, 0.08)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.9
+                token outputs:surface
+            }
+        }
+        def Material "Waste"
+        {
+            token outputs:surface.connect = </World/Materials/Waste/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.16, 0.09, 0.05)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.96
+                token outputs:surface
+            }
+        }
+        def Material "TauTangle"
+        {
+            token outputs:surface.connect = </World/Materials/TauTangle/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.35, 0.14, 0.05)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.72
+                token outputs:surface
+            }
+        }
+        def Material "Microtubule"
+        {
+            token outputs:surface.connect = </World/Materials/Microtubule/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.23, 0.48, 0.42)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.42
+                token outputs:surface
+            }
+        }
+        def Material "BlockedCargo"
+        {
+            token outputs:surface.connect = </World/Materials/BlockedCargo/Shader.outputs:surface>
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.65, 0.31, 0.08)
+                color3f inputs:emissiveColor = (0.05, 0.015, 0)
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
