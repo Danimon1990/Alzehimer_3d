@@ -55,6 +55,25 @@ def Xform "World"
                 token outputs:surface
             }
         }
+
+        def Material "SphereRed"
+        {
+            token outputs:surface.connect = </World/Materials/SphereRed/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.02, 0.02)
+                float inputs:clearcoat = 1
+                float inputs:clearcoatRoughness = 0.01
+                color3f inputs:emissiveColor = (0.22, 0, 0)
+                float inputs:ior = 1.6
+                float inputs:metallic = 0.6
+                float inputs:opacity = 1
+                float inputs:roughness = 0.015
+                token outputs:surface
+            }
+        }
     }
 }
 
