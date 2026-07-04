@@ -2,7 +2,7 @@
 (
     defaultPrim = "World"
     startTimeCode = 0
-    endTimeCode = 249
+    endTimeCode = 320
     timeCodesPerSecond = 24
     metersPerUnit = 0.01
     upAxis = "Y"

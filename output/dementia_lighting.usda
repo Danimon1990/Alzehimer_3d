@@ -1,10 +1,10 @@
 #usda 1.0
 (
     defaultPrim = "World"
-    startTimeCode = 0
     endTimeCode = 249
-    timeCodesPerSecond = 24
     metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
     upAxis = "Y"
 )
 
@@ -14,17 +14,19 @@ def Xform "World"
     {
         def DomeLight "Environment"
         {
-            color3f inputs:color = (0.32, 0.28, 0.22)
-            float inputs:intensity = 0.22
+            color3f inputs:color = (0.42, 0.38, 0.32)
+            float inputs:intensity = 1.1
         }
+
         def DistantLight "Key"
         {
             color3f inputs:color = (1, 0.82, 0.58)
             float inputs:intensity = 1.4
-            double3 xformOp:translate = (0, 0, 0)
             float3 xformOp:rotateXYZ = (-35, -25, 0)
             float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
         }
     }
 }
+

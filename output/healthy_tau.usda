@@ -75,8 +75,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.09554116810449569, -13.611844287035117, 0.3882544900842934)
-                double3 target = (0.0006653954186204847, -11.874819901527358, 0.5453151355318235)
+                double3 position = (52.857066778590514, -6.407049969711234, -9.897261772662025)
+                double3 target = (-24.16735134828958, -41.643375055243936, 28.184799419805387)
             }
             dictionary Right = {
                 double3 position = (-500, 0, 0)
@@ -960,7 +960,7 @@ def Xform "World"
         float exposure:time = 0.02
         float focalLength = 18.147562
         float focusDistance = 400
-        bool omni:kit:cameraLock = 0
+        bool omni:kit:cameraLock = 1
         custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -0.005214698415956177)
         token visibility = "invisible"
         double3 xformOp:rotateYXZ = (54.845726013183594, 87.82662963867188, -84.76815795898438)
@@ -993,6 +993,39 @@ def Xform "World"
         double3 xformOp:translate.timeSamples = {
             1: (0, 0, 0.12),
             240: (0, -22.40000033378601, 0.12),
+        }
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    over "Materials"
+    {
+        over "SphereRed"
+        {
+            over "Shader"
+            {
+                color3f inputs:diffuseColor = (0.8841699, 0.6998256, 0.6998256)
+                color3f inputs:emissiveColor = (0.94208497, 0.84442216, 0.5274221)
+                color3f inputs:specularColor = (1, 0.99999, 0.99999)
+            }
+        }
+    }
+
+    def Sphere "Sphere_02" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        rel material:binding = </World/Materials/SphereRed> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 50
+        custom bool refinementEnableOverride = 1
+        custom int refinementLevel = 2
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (0.0013, 0.0013, 0.0013)
+        double3 xformOp:translate.timeSamples = {
+            1: (-0.45, -10, 0.15),
+            240: (-0.45, -23, 0.15),
         }
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
@@ -1051,10 +1084,10 @@ over "OmniverseKit_Persp" (
     float exposure:time = 0.02
     float focalLength = 18.147562
     float focusDistance = 400
-    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -1.7466892037336648)
-    float3 xformOp:rotateXYZ = (96.030136, -31.134954, 5.202135e-14)
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -92.86874058575698)
+    float3 xformOp:rotateXYZ = (157.7022, 63.691498, -180)
     float3 xformOp:scale = (1, 1, 1)
-    double3 xformOp:translate = (0.09554116810449569, -13.611844287035117, 0.3882544900842934)
+    double3 xformOp:translate = (52.857066778590514, -6.407049969711234, -9.897261772662025)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
 }
 
