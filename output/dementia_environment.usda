@@ -1,14 +1,82 @@
 #usda 1.0
 (
     customLayerData = {
+        dictionary MovieCaptureSettings = {
+            double animation_fps = 24
+            int bad_frame_size_threshold = 0
+            int batch_count = 1
+            string camera_name = "/World/BackgroundDecayField/Cameras/Camera_DecayField"
+            bool capture_application = 0
+            int capture_every_nth_frames = 20
+            bool capture_every_nth_frames_checked = 0
+            int capture_frame_end = 320
+            int capture_frame_start = 0
+            string capture_name = "decay"
+            string capture_range = "Custom Range - Frames"
+            double capture_time_end = 10
+            double capture_time_start = 0
+            int early_quit_time_limit = 0
+            string exr_compression_method = "zips"
+            double fps = 24
+            bool generate_shader_cache = 0
+            bool hdr_for_exr_checked = 1
+            bool hdr_for_exr_visible = 0
+            int iray_pathtrace_spp = 1
+            int iray_subframes_per_frame = 32
+            int max_bad_frame_threshold = 3
+            string movie_type = "Sequence"
+            int mp4_encoding_bitrate = 16777216
+            int mp4_encoding_iframe_interval = 60
+            string mp4_encoding_preset = "PRESET_P3"
+            string mp4_encoding_profile = "H264_PROFILE_HIGH"
+            string mp4_encoding_rc_mode = "RC_VBR"
+            int mp4_encoding_rc_target_quality = 0
+            string mp4_encoding_tuning_info = "TUNING_HIGH_QUALITY"
+            bool mp4_encoding_video_full_range_flag = 0
+            string output_format = ".png"
+            string output_path = "/home/daniel/Documents/Alz_videos/Output"
+            bool overwrite_existing_frame_checked = 0
+            bool pathtrace_mb_checked = 1
+            double pathtrace_mb_frame_shutter_close = 0.5
+            double pathtrace_mb_frame_shutter_open = 0
+            int pathtrace_mb_subframes = 64
+            int pathtrace_spp_per_iteration_mgpu = 1
+            int pathtrace_spp_per_subframe = 1
+            string queue_instance = "localhost Queue"
+            int realtime_settle_latency = 0
+            int realtime_wait_for_render_resolve = 0
+            string render_preset = "RealTimePathTracing"
+            bool render_style = 1
+            bool renumber_negtive_frames_checked = 0
+            int resolution_aspect_ratio_selected = 0
+            string resolution_aspect_ratios = '["16:9", "4:3"]'
+            int resolution_height = 1080
+            string resolution_type = "Custom"
+            bool resolution_w_h_linked = 1
+            int resolution_width = 1920
+            int run_n_frames_before_start = 20
+            bool run_n_frames_before_start_checked = 0
+            bool save_alpha_checked = 0
+            bool skip_upload_to_s3 = 0
+            int start_delay_seconds = 10
+            double sunstudy_end = 18
+            int sunstudy_movie_minutes = 1
+            int sunstudy_movie_seconds = 1
+            double sunstudy_start = 6
+            string task_comment = ""
+            int task_priority = 65535
+            string task_type = "create-render"
+            double texture_streaming_memory_budget = 0.6000000238418579
+            bool upload_to_s3 = 0
+        }
         dictionary cameraSettings = {
             dictionary Front = {
                 double3 position = (0, 0, 500)
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-61.03318084374044, 45.05138160966584, 103.13883922863575)
-                double3 target = (-6.282396040787148, -13.809937715923894, -14.102732490225236)
+                double3 position = (-69.00020673766363, -10.819585957180536, 83.0096397372781)
+                double3 target = (-22.24252179095228, -14.790264073586023, -20.674572173697115)
             }
             dictionary Right = {
                 double3 position = (-500, 0, 0)
@@ -18,7 +86,7 @@
                 double3 position = (0, 500, 0)
                 double radius = 5
             }
-            string boundCamera = "/World/Cameras/Camera_DeadNeuron"
+            string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary metricsAssembler = {
             dictionary "/World/plaque_references" = {
@@ -32,6 +100,7 @@
         }
         dictionary renderSettings = {
             double "rtx:directLighting:sampledLighting:maxRayUnexposedIntensity" = 6399.9990234375
+            int "rtx:externalFrameCounter" = 320
             double "rtx:indirectDiffuse:maxRayUnexposedIntensity" = 6399.9990234375
             double "rtx:pathtracing:fireflyFilter:maxPerEmissiveUnexposedIntensity" = 3199.99951171875
             double "rtx:pathtracing:fireflyFilter:maxUnexposedIntensityPerSample" = 3199.99951171875
@@ -66,15 +135,15 @@ def Xform "World"
             float exposure:fStop = 5
             float exposure:responsivity = 1.1026709
             float exposure:time = 0.02
-            custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -345.8190770207784)
-            float3 xformOp:rotateXYZ = (-4.37282, -4.6302595, 1.2290216e-14)
+            custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -412.2905252080428)
+            float3 xformOp:rotateXYZ = (-2, -2.5, -2.2571118e-15)
             float3 xformOp:rotateXYZ.timeSamples = {
                 0: (-2, -2.5, 0),
                 50: (-4.37282, -4.6302595, 0),
                 110: (-6.5, -7.5, 0),
             }
             float3 xformOp:scale = (1.1, 1, 1)
-            double3 xformOp:translate = (-23.800000354647636, 9.520806669068556, 307.7222483975707)
+            double3 xformOp:translate = (-26.51740281532538, 12.227399566254082, 331.76712569753835)
             double3 xformOp:translate.timeSamples = {
                 0: (-27.42, 12.95, 352.44),
                 50: (-23.800000354647636, 9.520806669068556, 307.7222483975707),
@@ -358,8 +427,10 @@ def Xform "World"
 
                 over "Sphere_002"
                 {
+                    float3 xformOp:rotateXYZ = (-2.4650867, -4.7989373, -12.006363)
+                    float3 xformOp:scale = (0.58, 0.58, 0.58)
                     double3 xformOp:translate.timeSamples = {
-                        0: (-0.5412, 0.3699, -0.3542),
+                        0: (-0.21345440552048167, 0.1797772612819859, -1.1798454543997359),
                         10: (-0.5247, 0.3798, -0.369),
                         20: (-0.4819, 0.4054, -0.4075),
                         30: (-0.419, 0.4432, -0.4641),
@@ -393,12 +464,15 @@ def Xform "World"
                         310: (-0.49, 0.4006, -0.4003),
                         320: (-0.529, 0.3772, -0.3651),
                     }
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
                 }
 
                 over "Sphere_003"
                 {
+                    float3 xformOp:rotateXYZ = (0, 3.4, 0)
+                    float3 xformOp:scale = (0.608, 0.608, 0.608)
                     double3 xformOp:translate.timeSamples = {
-                        0: (0.4368, 0.0088, 2.5221),
+                        0: (0.3788649451532784, -0.2050553614331836, -0.4581017198287396),
                         10: (0.3878, 0.0741, 2.5809),
                         20: (0.3435, 0.1333, 2.6341),
                         30: (0.3086, 0.1798, 2.676),
@@ -432,6 +506,15 @@ def Xform "World"
                         310: (0.5366, -0.1243, 2.4023),
                         320: (0.5653, -0.1626, 2.3679),
                     }
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                over "Sphere"
+                {
+                    float3 xformOp:rotateXYZ = (0.90000004, 21.7, -19.2)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (5.341981391344549, -2.999785377972697, 4.206198190557156)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
                 }
             }
         }
@@ -590,6 +673,41 @@ def Xform "World"
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:rotateX:unitsResolve", "xformOp:scale:unitsResolve"]
         }
     }
+
+    def "BackgroundDecayField" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        prepend payload = @dementia_background_swarm.usda@
+    )
+    {
+        rel material:binding = </World/Materials/DeadNeuron> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 129.9733689428154)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Cameras"
+        {
+            over "Camera_DecayField" (
+                prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+            )
+            {
+                float exposure:fStop = 5
+                float exposure:responsivity = 1.1026709
+                float exposure:time = 0.02
+                custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -241.49281810584918)
+                float3 xformOp:rotateXYZ = (5.4687, -6.80047, -7.2570005e-15)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (-35.60000053048134, -25.100000374019146, 18.200000271201134)
+                double3 xformOp:translate.timeSamples = {
+                    0: (-3.6, -25.6, -60),
+                    320: (-35, -25.1, 18.2),
+                }
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+    }
 }
 
 over "Render" (
@@ -609,15 +727,16 @@ over "Render" (
                 no_delete = true
             )
             {
-                rel camera = </World/Cameras/Camera_DeadNeuron>
+                rel camera = </OmniverseKit_Persp>
                 token omni:rtx:ambientOcclusion:denoiserMode = "none"
                 token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
                 token omni:rtx:background:source:type = "domeLight"
                 bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
                 token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
-                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:dlss:frameGeneration = 1
                 bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
-                bool omni:rtx:material:db:syncLoads = 1
+                bool omni:rtx:material:db:syncLoads
+                bool omni:rtx:post:compositing:outputAlpha
                 token omni:rtx:post:dlss:execMode = "performance"
                 bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
                 bool omni:rtx:post:registeredCompositing:invertToneMap = 1
@@ -628,6 +747,7 @@ over "Render" (
                 float omni:rtx:pt:fireflyFilter:maxUnexposedIntensityPerSampleDiffuse = 3199.9995
                 uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
                 uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                uint omni:rtx:pt:samplesPerPixel
                 bool omni:rtx:reflections:denoiser:enabled = 0
                 token omni:rtx:rendermode = "RealTimePathTracing"
                 color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
@@ -641,12 +761,13 @@ over "Render" (
                 int omni:rtx:rt:sss:samples = 1
                 uint omni:rtx:rtpt:maxVolumeBounces = 15
                 float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
-                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:materialSyncLoads
                 bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
-                bool omni:rtx:scene:useViewLightingMode = 1
+                bool omni:rtx:scene:useViewLightingMode
+                uint omni:rtx:viewTile:limit = 4294967295
                 rel orderedVars = </Render/Vars/LdrColor>
                 custom bool overrideClipRange = 0
-                uniform int2 resolution = (1280, 720)
+                uniform int2 resolution = (949, 577)
             }
         }
     }
@@ -692,10 +813,10 @@ over "OmniverseKit_Persp" (
     float exposure:time = 0.02
     float focalLength = 18.147562
     float focusDistance = 400
-    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -142.15445644930435)
-    float3 xformOp:rotateXYZ = (-24.460508, -25.032162, -6.669519e-14)
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -113.80888887024614)
+    float3 xformOp:rotateXYZ = (-1.9993981, -24.273586, -1.1922593e-13)
     float3 xformOp:scale = (1, 1, 1)
-    double3 xformOp:translate = (-61.03318084374044, 45.05138160966584, 103.13883922863575)
+    double3 xformOp:translate = (-69.00020673766363, -10.819585957180536, 83.0096397372781)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
 }
 
