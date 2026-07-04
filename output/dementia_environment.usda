@@ -68,8 +68,18 @@ def Xform "World"
             float exposure:time = 0.02
             custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -345.8190770207784)
             float3 xformOp:rotateXYZ = (-4.37282, -4.6302595, 1.2290216e-14)
+            float3 xformOp:rotateXYZ.timeSamples = {
+                0: (-2, -2.5, 0),
+                50: (-4.37282, -4.6302595, 0),
+                110: (-6.5, -7.5, 0),
+            }
             float3 xformOp:scale = (1.1, 1, 1)
             double3 xformOp:translate = (-23.800000354647636, 9.520806669068556, 307.7222483975707)
+            double3 xformOp:translate.timeSamples = {
+                0: (-27.42, 12.95, 352.44),
+                50: (-23.800000354647636, 9.520806669068556, 307.7222483975707),
+                110: (-23.98, 2.85, 272.94),
+            }
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
         }
 
@@ -206,8 +216,18 @@ def Xform "World"
             float exposure:time = 0.02
             custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -225.79947737275248)
             float3 xformOp:rotateXYZ = (-12.09019, -4.19621, -1.3503861e-14)
+            float3 xformOp:rotateXYZ.timeSamples = {
+                130: (-12.03, 3.21, 0),
+                180: (-12.09019, -4.19621, 0),
+                240: (-12.15, -7.4, 0),
+            }
             float3 xformOp:scale = (1, 1, 1)
             double3 xformOp:translate = (1.8442277980304727, 51.29395853517243, 217.51532769324314)
+            double3 xformOp:translate.timeSamples = {
+                130: (33.16, 61.76, 268.84),
+                180: (1.8442277980304727, 51.29395853517243, 217.51532769324314),
+                240: (-5.27, 42.91, 177.78),
+            }
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
         }
     }
