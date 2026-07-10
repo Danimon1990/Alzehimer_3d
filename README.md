@@ -30,23 +30,18 @@ See [`MICROTUBULES_BIOLOGY.md`](MICROTUBULES_BIOLOGY.md) for the full biology re
 
 ```
 healthy_vs_alz/
-├── neuron_usd/               # Python pipeline
-│   ├── main.py               # CLI — emit pyramidal / bilateral / multipolar neurons
-│   ├── conditions.py         # CLI — emit healthy / alzheimers condition layers
-│   ├── procedural_neuron.py  # BasisCurves neuron geometry builder
-│   ├── microtubule_chain.py  # PointInstancer microtubule chain
-│   ├── cortical_pyramidal_builder.py
-│   ├── msn_builder.py        # Medium spiny neuron
-│   ├── network_builder.py    # Multi-neuron network scene
-│   └── neuron_microtubules_scene.py
+├── neuron_usd/                     # Python pipeline
+│   ├── dementia_environment_scene.py  # Builds the Alzheimer's / dementia scene (output/dementia_*.usda)
+│   ├── healthy_tau_scene.py           # Builds the healthy-tau scene (output/healthy_tau*.usda)
+│   ├── neuron_variant_scene.py        # Neuron variant set (artist vs. procedural) used by healthy_tau
+│   ├── structured_neuron.py           # BasisCurves neuron geometry used by healthy_tau
+│   └── microtubule_bundle.py          # PointInstancer microtubule bundle used by both scenes
 ├── assets/
-│   ├── microtubules.usdc     # Blender-exported microtubule segment (binary)
-│   └── neuron_model.usda     # Base neuron mesh
-├── output/                   # Generated USD layers
-│   ├── condition_healthy.usda
-│   ├── condition_alzheimers.usda
-│   ├── Network.usda
-│   └── ...
+│   ├── neuron_model.usda           # Base neuron mesh
+│   ├── Broken_neuron.usdc / Sick_neuron.usdc  # Blender-exported dementia-scene neurons
+│   ├── microtubules.usdc / TAU.usdc / plaques.usdc  # Blender-exported binary assets
+│   └── *.blend                     # Blender source files (not tracked, see .gitignore)
+├── output/                         # Generated USD layers for the two scenes above
 └── MICROTUBULES_BIOLOGY.md
 ```
 
@@ -64,29 +59,22 @@ source python-usd-venv/bin/activate
 
 ## Usage
 
-**Generate a neuron preset:**
+Each scene builder is a standalone script that writes its layers into `output/`:
 
 ```bash
-python -m neuron_usd pyramidal
-python -m neuron_usd bilateral
-python -m neuron_usd multipolar
+python neuron_usd/dementia_environment_scene.py
+python neuron_usd/healthy_tau_scene.py
 ```
 
-**Emit a condition layer:**
-
-```bash
-python -m neuron_usd.conditions healthy
-python -m neuron_usd.conditions alzheimers
-```
-
-Use `--force` to overwrite existing output files. Use `--out-dir` to change the output directory.
+`healthy_tau_scene.py` depends on `neuron_variant_scene.py`, `structured_neuron.py`, and
+`microtubule_bundle.py` having already been run at least once to produce their layers in `output/`.
 
 ## Key USD concepts demonstrated
 
 | Concept | Where |
 |---|---|
-| `UsdGeomPointInstancer` | `microtubule_chain.py` — GPU-efficient N-copy instancing |
-| `BasisCurves` | `procedural_neuron.py` — axons, dendrites, spines |
-| Layer sublayering | `conditions.py` — non-destructive condition overlays |
+| `UsdGeomPointInstancer` | `microtubule_bundle.py` — GPU-efficient N-copy instancing |
+| `BasisCurves` | `structured_neuron.py` — axons, dendrites, spines |
+| Layer sublayering | `dementia_environment_scene.py` — non-destructive scene composition |
 | `UsdPreviewSurface` | neuron shell transparency / material overrides |
 | `UsdGeomXform` | coordinate correction (Blender Z-up → USD Y-up) |
