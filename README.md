@@ -2,6 +2,10 @@
 
 A procedural 3D visualization pipeline comparing healthy and Alzheimer's-affected neurons, built with [OpenUSD](https://openusd.org/). The project models the role of microtubule integrity in neuronal health and tau-driven degeneration.
 
+Check it out:
+English: https://youtu.be/GAWZ4K7GI5w?si=Ywt9ApPbzGDT4PBp	
+Español: https://youtu.be/I1goe49ouos?si=QDD-jnzOL3JPbOJS
+
 ## What it does
 
 - Procedurally generates neuron geometry (pyramidal, bilateral, multipolar, medium spiny) as USD layers
