@@ -1,0 +1,6 @@
+[shot]
+name = "healthy"
+start_frame = 1.0
+end_frame = 240.0
+source = "output/healthy_tau.usda"
+

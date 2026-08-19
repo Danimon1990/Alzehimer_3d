@@ -1,76 +1,61 @@
-# Alzheimer's 3D — Neuron USD Visualization
+# Healthy vs. Alzheimer's — OpenUSD Visualization
 
-A procedural 3D visualization pipeline comparing healthy and Alzheimer's-affected neurons, built with [OpenUSD](https://openusd.org/). The project models the role of microtubule integrity in neuronal health and tau-driven degeneration.
+A procedural OpenUSD project for visualizing healthy neuronal transport and
+Alzheimer's pathology. The repository contains reusable biological assets,
+layered presentation shots, and Python publishing tools.
 
-## What it does
+## Repository layout
 
-- Procedurally generates neuron geometry (pyramidal, bilateral, multipolar, medium spiny) as USD layers
-- Builds microtubule bundles inside axons and dendrites using `UsdGeomPointInstancer` for GPU-efficient instancing
-- Composes condition layers (`healthy` vs `alzheimers`) as USD sublayers over a shared network scene
-- Demonstrates key USD concepts: layer composition, `BasisCurves`, `PointInstancer`, `UsdPreviewSurface` materials
-
-## The science
-
-In healthy neurons, **tau proteins** stabilize microtubule bundles — the transport highways that move cargo (mitochondria, vesicles, neurotransmitters) along axons. In Alzheimer's disease:
-
-1. Tau becomes hyperphosphorylated and detaches from microtubules
-2. Microtubules depolymerize — the transport highway collapses
-3. Detached tau aggregates into **neurofibrillary tangles**
-4. Synapses starve and neurons die
-
-Modeling microtubule integrity is literally modeling Alzheimer's pathology.
-
-See [`MICROTUBULES_BIOLOGY.md`](MICROTUBULES_BIOLOGY.md) for the full biology reference.
-
-## Project structure
-
-```
-healthy_vs_alz/
-├── neuron_usd/                     # Python pipeline
-│   ├── dementia_environment_scene.py  # Builds the Alzheimer's / dementia scene (output/dementia_*.usda)
-│   ├── healthy_tau_scene.py           # Builds the healthy-tau scene (output/healthy_tau*.usda)
-│   ├── neuron_variant_scene.py        # Neuron variant set (artist vs. procedural) used by healthy_tau
-│   ├── structured_neuron.py           # BasisCurves neuron geometry used by healthy_tau
-│   └── microtubule_bundle.py          # PointInstancer microtubule bundle used by both scenes
-├── assets/
-│   ├── neuron_model.usda           # Base neuron mesh
-│   ├── Broken_neuron.usdc / Sick_neuron.usdc  # Blender-exported dementia-scene neurons
-│   ├── microtubules.usdc / TAU.usdc / plaques.usdc  # Blender-exported binary assets
-│   └── *.blend                     # Blender source files (not tracked, see .gitignore)
-├── output/                         # Generated USD layers for the two scenes above
-└── MICROTUBULES_BIOLOGY.md
+```text
+config/                 Project and shot configuration
+src/healthy_vs_alz/     Publishing CLI and OpenUSD utilities
+usd/assets/             Published component assets
+usd/sequences/          Layered shot publications
+assets/                 Approved source geometry from DCC applications
+output/                 Legacy approved scenes used during migration
+tests/                  Composition and publication checks
 ```
 
-## Requirements
+The USD composition contract and migration boundary are documented in
+[`docs/USD_ARCHITECTURE.md`](docs/USD_ARCHITECTURE.md).
 
-- Python 3.12+
-- OpenUSD Python bindings (`pxr`)
+## Commands
 
-Activate the USD venv before running any scripts:
+Use a Python 3.12 environment containing the OpenUSD `pxr` bindings, then
+install the project in editable mode:
 
 ```bash
-cd /path/to/usd_root
-source python-usd-venv/bin/activate
+python -m pip install -e .
+hvaz build asset all
+hvaz build shot all
+hvaz validate
 ```
 
-## Usage
-
-Each scene builder is a standalone script that writes its layers into `output/`:
+Individual publications are also supported:
 
 ```bash
-python neuron_usd/dementia_environment_scene.py
-python neuron_usd/healthy_tau_scene.py
+hvaz build asset neuron
+hvaz build shot healthy
 ```
 
-`healthy_tau_scene.py` depends on `neuron_variant_scene.py`, `structured_neuron.py`, and
-`microtubule_bundle.py` having already been run at least once to produce their layers in `output/`.
+## Published shot stacks
 
-## Key USD concepts demonstrated
+Each shot is composed from layout, animation, lighting, camera, and render
+layers. Layout owns asset placement; reusable assets own geometry, units,
+orientation, and their default appearance. Generated shot roots remain thin
+and contain no geometry.
 
-| Concept | Where |
-|---|---|
-| `UsdGeomPointInstancer` | `microtubule_bundle.py` — GPU-efficient N-copy instancing |
-| `BasisCurves` | `structured_neuron.py` — axons, dendrites, spines |
-| Layer sublayering | `dementia_environment_scene.py` — non-destructive scene composition |
-| `UsdPreviewSurface` | neuron shell transparency / material overrides |
-| `UsdGeomXform` | coordinate correction (Blender Z-up → USD Y-up) |
+The current v2 layout layers sublayer the existing approved presentations so
+the migration preserves root-level render settings and the visual result.
+Legacy inputs can be replaced incrementally with published component assets.
+
+## Development
+
+Run the pipeline tests with:
+
+```bash
+python -m unittest discover -s tests
+```
+
+Biological background is available in
+[`MICROTUBULES_BIOLOGY.md`](MICROTUBULES_BIOLOGY.md).

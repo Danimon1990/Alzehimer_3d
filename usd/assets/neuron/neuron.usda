@@ -1,0 +1,25 @@
+#usda 1.0
+(
+    defaultPrim = "Neuron"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "Neuron" (
+    assetInfo = {
+        asset identifier = @./neuron.usda@
+        string name = "neuron"
+    }
+    kind = "component"
+)
+{
+    def Xform "Geometry" (
+        prepend payload = @../../../assets/neuron_model.usda@</root>
+    )
+    {
+        float xformOp:rotateX = -90
+        float3 xformOp:scale = (2.15, 2.15, 2.15)
+        uniform token[] xformOpOrder = ["xformOp:rotateX", "xformOp:scale"]
+    }
+}
+

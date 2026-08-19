@@ -1,0 +1,10 @@
+[stage]
+up_axis = "Y"
+meters_per_unit = 0.01
+frames_per_second = 24.0
+
+[paths]
+usd = "usd"
+legacy_assets = "assets"
+legacy_output = "output"
+
