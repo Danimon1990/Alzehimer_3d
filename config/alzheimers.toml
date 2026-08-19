@@ -1,0 +1,6 @@
+[shot]
+name = "alzheimers"
+start_frame = 0.0
+end_frame = 249.0
+source = "output/dementia_environment.usda"
+

@@ -1,0 +1,22 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    endTimeCode = 240
+    framesPerSecond = 24
+    metersPerUnit = 0.01
+    startTimeCode = 1
+    subLayers = [
+        @../../../../output/healthy_tau.usda@
+    ]
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World" (
+    customData = {
+        string department = "layout"
+    }
+)
+{
+}
+

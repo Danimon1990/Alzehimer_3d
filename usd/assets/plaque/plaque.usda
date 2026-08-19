@@ -1,0 +1,24 @@
+#usda 1.0
+(
+    defaultPrim = "Plaque"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "Plaque" (
+    assetInfo = {
+        asset identifier = @./plaque.usda@
+        string name = "plaque"
+    }
+    kind = "component"
+)
+{
+    def Xform "Geometry" (
+        prepend payload = @../../../assets/plaques.usdc@</root>
+    )
+    {
+        float xformOp:rotateX = -90
+        uniform token[] xformOpOrder = ["xformOp:rotateX"]
+    }
+}
+

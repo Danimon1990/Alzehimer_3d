@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "healthy-vs-alz"
+version = "0.2.0"
+description = "OpenUSD asset and shot pipeline for neuronal health visualization"
+requires-python = ">=3.12"
+
+[project.scripts]
+hvaz = "healthy_vs_alz.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
