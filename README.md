@@ -4,15 +4,23 @@ A procedural OpenUSD project for visualizing healthy neuronal transport and
 Alzheimer's pathology. The repository contains reusable biological assets,
 layered presentation shots, and Python publishing tools.
 
-<<<<<<< HEAD
-Check it out:
-English: https://youtu.be/GAWZ4K7GI5w?si=Ywt9ApPbzGDT4PBp	
-Español: https://youtu.be/I1goe49ouos?si=QDD-jnzOL3JPbOJS
+## Watch the demo
 
-## What it does
-=======
+- [English walkthrough](https://youtu.be/GAWZ4K7GI5w)
+- [Recorrido en español](https://youtu.be/I1goe49ouos)
+
+## What this project demonstrates
+
+- Reusable USD component assets with payloads for source geometry.
+- Healthy and Alzheimer's presentation shots composed from separate layout,
+  animation, lighting, camera, and render layers.
+- Python command-line tools for publishing assets and shots, with checks for
+  stage metadata and unresolved dependencies.
+
+The scenes illustrate biological concepts. The pipeline checks validate USD
+structure and dependencies; they do not establish biological accuracy.
+
 ## Repository layout
->>>>>>> 69dd850 (Add production OpenUSD publishing architecture)
 
 ```text
 config/                 Project and shot configuration
@@ -29,8 +37,25 @@ The USD composition contract and migration boundary are documented in
 
 ## Commands
 
-Use a Python 3.12 environment containing the OpenUSD `pxr` bindings, then
-install the project in editable mode:
+Clone the repository and enter its root directory:
+
+```bash
+git clone https://github.com/Danimon1990/Alzehimer_3d.git
+cd Alzehimer_3d
+```
+
+Use Python 3.12 or newer with the OpenUSD `pxr` bindings. For a standalone
+Python environment on Linux or macOS:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install usd-core
+```
+
+If you already have a compatible OpenUSD Python environment, activate it
+instead. Install the project in editable mode and publish from the repository
+root. The build commands regenerate files under `usd/`:
 
 ```bash
 python -m pip install -e .
@@ -45,6 +70,17 @@ Individual publications are also supported:
 hvaz build asset neuron
 hvaz build shot healthy
 ```
+
+## Open the scenes
+
+Open either published shot in a compatible USD viewer or Omniverse application:
+
+- Healthy: `usd/sequences/comparison/healthy/healthy.usda`
+- Alzheimer's: `usd/sequences/comparison/alzheimers/alzheimers.usda`
+
+Keep the repository's directory structure intact. These shots depend on files
+in `output/` and `assets/`; copying only the shot root will omit dependencies.
+The `usd-core` Python package does not provide a graphical viewer.
 
 ## Published shot stacks
 
