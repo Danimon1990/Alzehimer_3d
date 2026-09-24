@@ -93,13 +93,6 @@ The current v2 layout layers sublayer the existing approved presentations so
 the migration preserves root-level render settings and the visual result.
 Legacy inputs can be replaced incrementally with published component assets.
 
-## Known limitation
-
-A clean checkout currently lacks `assets/textures/color_0C0C0C.exr`, referenced
-by the source assets. Publishing completes, but `hvaz validate` and the
-existing dependency test report this missing texture. Restore the intended
-source texture before treating the publication as fully validated.
-
 ## Development
 
 Run the pipeline tests with:
